@@ -1,0 +1,38 @@
+// SESSION 3 - VALEURS & SYMBOLES (30 questions)
+
+const quizQuestions = [
+    {question: "Quelles sont les couleurs du drapeau français ?", answers: ["Rouge, blanc, vert", "Bleu, blanc, rouge", "Bleu, jaune, rouge", "Rouge, blanc, bleu"], correct: 1, explanation: "Le drapeau tricolore bleu, blanc, rouge a été adopté lors de la Révolution française en 1794."},
+    {question: "Quel est l'hymne national français ?", answers: ["Le Chant des Partisans", "La Marseillaise", "La Marche Consulaire", "Le Chant du Départ"], correct: 1, explanation: "La Marseillaise est l'hymne national français depuis 1795. Elle a été composée par Rouget de Lisle en 1792."},
+    {question: "Quelle est la devise de la République française ?", answers: ["Travail, Famille, Patrie", "Liberté, Égalité, Fraternité", "Honneur et Patrie", "Force et Honneur"], correct: 1, explanation: "La devise de la République française est 'Liberté, Égalité, Fraternité'."},
+    {question: "Quel est le jour de la fête nationale française ?", answers: ["Le 1er mai", "Le 14 juillet", "Le 11 novembre", "Le 8 mai"], correct: 1, explanation: "Le 14 juillet commémore la prise de la Bastille en 1789."},
+    {question: "Marianne est le symbole de :", answers: ["La monarchie française", "La République française", "L'Église catholique", "L'armée française"], correct: 1, explanation: "Marianne est l'allégorie de la République française. Elle symbolise la liberté et la raison."},
+    {question: "Quel symbole représente la justice en France ?", answers: ["Une épée", "Une balance", "Un lion", "Un coq"], correct: 1, explanation: "La balance est le symbole universel de la justice. Elle représente l'équité et l'impartialité."},
+    {question: "Le coq est un symbole :", answers: ["De la monarchie", "De l'Église", "De la France", "De l'armée"], correct: 2, explanation: "Le coq gaulois est un des symboles traditionnels de la France."},
+    {question: "Quelle est la langue officielle de la République française ?", answers: ["Le latin", "Le français", "L'anglais", "Toutes les langues"], correct: 1, explanation: "Selon l'article 2 de la Constitution, le français est la seule langue officielle."},
+    {question: "La fête nationale du 14 juillet commémore :", answers: ["La victoire de 1918", "La prise de la Bastille", "La naissance de Napoléon", "La fin de la monarchie"], correct: 1, explanation: "Le 14 juillet commémore la prise de la Bastille le 14 juillet 1789."},
+    {question: "Les trois couleurs du drapeau représentent :", answers: ["Les trois rois", "Paris et la monarchie", "La liberté, l'égalité, la fraternité", "Les trois régions"], correct: 1, explanation: "Le bleu et le rouge sont les couleurs de Paris, le blanc était celle du roi."},
+    {question: "Marianne porte sur la tête :", answers: ["Une couronne", "Un bonnet phrygien", "Un casque", "Une tiare"], correct: 1, explanation: "Marianne porte un bonnet phrygien, symbole de liberté depuis l'Antiquité."},
+    {question: "Où trouve-t-on Marianne ?", answers: ["Dans les mairies", "Dans les églises", "Dans les banques", "Dans les supermarchés"], correct: 0, explanation: "Le buste de Marianne est présent dans toutes les mairies de France."},
+    {question: "La Marseillaise a été composée en :", answers: ["1789", "1792", "1804", "1848"], correct: 1, explanation: "La Marseillaise a été composée par Rouget de Lisle en 1792 pendant la Révolution."},
+    {question: "Quel animal symbolise traditionnellement la France ?", answers: ["Le lion", "L'aigle", "Le coq", "Le loup"], correct: 2, explanation: "Le coq gaulois est le symbole traditionnel de la France."},
+    {question: "La devise 'Liberté, Égalité, Fraternité' est inscrite :", answers: ["Dans la Constitution", "Sur les églises", "Sur les mairies", "Les deux dernières réponses"], correct: 3, explanation: "La devise est inscrite dans la Constitution et sur les bâtiments publics comme les mairies."},
+    {question: "Le drapeau français flotte sur :", answers: ["Les bâtiments publics", "Les églises", "Les magasins", "Les restaurants"], correct: 0, explanation: "Le drapeau tricolore flotte sur les bâtiments publics français."},
+    {question: "La fête du 14 juillet est célébrée depuis :", answers: ["1789", "1880", "1945", "1958"], correct: 1, explanation: "La fête nationale du 14 juillet a été officialisée en 1880."},
+    {question: "Marianne symbolise :", answers: ["La République et la liberté", "La monarchie", "L'Église", "L'armée"], correct: 0, explanation: "Marianne incarne la République française et ses valeurs de liberté."},
+    {question: "Le bleu du drapeau symbolise :", answers: ["Le ciel", "Paris", "La mer", "La royauté"], correct: 1, explanation: "Le bleu et le rouge sont les couleurs de la ville de Paris."},
+    {question: "Le blanc du drapeau symbolisait :", answers: ["La paix", "La monarchie", "La pureté", "Les nuages"], correct: 1, explanation: "Le blanc était traditionnellement la couleur de la royauté française."},
+    {question: "La Marseillaise est jouée :", answers: ["Lors des cérémonies officielles", "Dans les églises", "Dans les supermarchés", "À la radio tous les matins"], correct: 0, explanation: "L'hymne national est joué lors des cérémonies officielles et événements nationaux."},
+    {question: "RF sur les bâtiments signifie :", answers: ["Royauté Française", "République Française", "Révolution Française", "Région Française"], correct: 1, explanation: "RF signifie République Française et figure sur les bâtiments publics."},
+    {question: "Le coq gaulois est utilisé notamment :", answers: ["Dans le sport", "Dans la religion", "Dans l'armée uniquement", "Dans les écoles"], correct: 0, explanation: "Le coq gaulois est particulièrement utilisé comme emblème sportif de la France."},
+    {question: "Combien de couleurs a le drapeau français ?", answers: ["2", "3", "4", "5"], correct: 1, explanation: "Le drapeau français a trois couleurs : bleu, blanc et rouge."},
+    {question: "La Marseillaise commence par :", answers: ["'Allons enfants de la Patrie'", "'Aux armes citoyens'", "'Liberté, Égalité, Fraternité'", "'Vive la France'"], correct: 0, explanation: "Les premiers mots de La Marseillaise sont 'Allons enfants de la Patrie'."},
+    {question: "Le drapeau tricolore a été créé pendant :", answers: ["La Révolution française", "L'Empire", "La Restauration", "La Ve République"], correct: 0, explanation: "Le drapeau tricolore a été créé pendant la Révolution française."},
+    {question: "Marianne représente :", answers: ["Une personne réelle", "Une allégorie de la République", "Une sainte", "Une reine"], correct: 1, explanation: "Marianne est une allégorie, une représentation symbolique de la République."},
+    {question: "Les couleurs du drapeau sont disposées :", answers: ["Bleu, blanc, rouge", "Rouge, blanc, bleu", "Blanc, bleu, rouge", "Au hasard"], correct: 0, explanation: "Les trois bandes verticales sont disposées dans l'ordre : bleu, blanc, rouge."},
+    {question: "La devise républicaine exprime :", answers: ["Les valeurs de la République", "Les règles de l'armée", "Les lois religieuses", "Les règles commerciales"], correct: 0, explanation: "La devise 'Liberté, Égalité, Fraternité' exprime les valeurs fondamentales de la République."},
+    {question: "Le symbole de Marianne se trouve :", answers: ["Sur les pièces d'euro françaises", "Sur les billets", "Sur les passeports", "Nulle part"], correct: 0, explanation: "Marianne figure notamment sur les pièces d'euro françaises et les timbres."}
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = quizQuestions;
+}

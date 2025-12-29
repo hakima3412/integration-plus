@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Français B1 | Integration Plus</title>
+    <link rel="stylesheet" href="../membre-style.css">
+    <link rel="stylesheet" href="css/test-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../../" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Integration Plus</span>
+                </a>
+                <div class="nav-actions">
+                    <a href="../espace-membre.html" class="btn-back">
+                        <i class="fas fa-arrow-left"></i> Retour à l'Espace Membre
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page de démarrage -->
+    <div id="start-page" class="start-page">
+        <div class="container">
+            <div class="start-content">
+                <div class="level-badge b1">Niveau B1</div>
+                <h1>Test de Français B1</h1>
+                <p class="subtitle">Exercices variés de compréhension, grammaire et vocabulaire</p>
+                
+                <div class="test-info">
+                    <div class="info-item">
+                        <i class="fas fa-clipboard-list"></i>
+                        <div>
+                            <strong>40 Exercices</strong>
+                            <span>Compréhension, Grammaire, Vocabulaire</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>60 minutes</strong>
+                            <span>Temps recommandé</span>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <strong id="best-score-display">0%</strong>
+                            <span>Meilleur score</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="test-content">
+                    <h3><i class="fas fa-info-circle"></i> Contenu du test</h3>
+                    <ul class="content-list">
+                        <li><i class="fas fa-check"></i> Compréhension écrite (articles de presse, emails)</li>
+                        <li><i class="fas fa-check"></i> Grammaire avancée (subjonctif, conditionnel)</li>
+                        <li><i class="fas fa-check"></i> Vocabulaire professionnel et thématique</li>
+                        <li><i class="fas fa-check"></i> Expression de l'opinion</li>
+                        <li><i class="fas fa-check"></i> Production écrite (lettre formelle)</li>
+                    </ul>
+                </div>
+
+                <button id="start-btn" class="btn-start">
+                    <i class="fas fa-play"></i> Commencer le Test
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page du test -->
+    <div id="question-container" class="question-container" style="display: none;">
+        <div class="container">
+            <!-- Barre de progression -->
+            <div class="progress-bar-container">
+                <div class="progress-bar">
+                    <div id="progress-bar-fill" class="progress-bar-fill"></div>
+                </div>
+                <span id="progress-text" class="progress-text">0/40</span>
+            </div>
+
+            <!-- Titre de section -->
+            <div class="section-header">
+                <h2 id="section-title" class="section-title"></h2>
+            </div>
+
+            <!-- Texte de contexte (pour compréhension écrite) -->
+            <div id="context-container" class="context-container" style="display: none;">
+                <div class="context-box">
+                    <h3><i class="fas fa-book-open"></i> Texte :</h3>
+                    <p id="context-text" class="context-text"></p>
+                </div>
+            </div>
+
+            <!-- Instructions (pour production écrite) -->
+            <div id="instruction-container" class="instruction-container" style="display: none;">
+                <div class="instruction-box">
+                    <h3><i class="fas fa-pen"></i> Instructions :</h3>
+                    <p id="instruction-text" class="instruction-text"></p>
+                    <div id="example-text" class="example-text" style="display: none;"></div>
+                </div>
+            </div>
+
+            <!-- Question -->
+            <div class="question-card">
+                <div class="question-header">
+                    <span id="question-number" class="question-number">Question 1/40</span>
+                </div>
+                <h3 id="question-text" class="question-text"></h3>
+                <div id="options-container" class="options-container"></div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="navigation-buttons">
+                <button id="prev-btn" class="nav-btn secondary" onclick="testEngine.previousQuestion()">
+                    <i class="fas fa-arrow-left"></i> Précédent
+                </button>
+                <button id="next-btn" class="nav-btn primary" onclick="testEngine.nextQuestion()">
+                    Suivant <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="finish-btn" class="nav-btn success" onclick="testEngine.finishTest()" style="display: none;">
+                    <i class="fas fa-check"></i> Terminer le Test
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page des résultats -->
+    <div id="results-container" class="results-container" style="display: none;">
+        <div class="container">
+            <div class="results-card">
+                <div class="results-header">
+                    <div class="result-emoji" id="result-emoji">🏆</div>
+                    <h2 id="result-message">Excellent !</h2>
+                </div>
+
+                <div class="results-stats">
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-star"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="result-score">0/40</span>
+                            <span class="stat-label">Score</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-percent"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="result-percentage">0%</span>
+                            <span class="stat-label">Pourcentage</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-content">
+                            <span class="stat-value" id="time-spent">0 min</span>
+                            <span class="stat-label">Temps écoulé</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="action-btn primary" onclick="testEngine.restartTest()">
+                        <i class="fas fa-redo"></i> Recommencer
+                    </button>
+                    <a href="../espace-membre.html" class="action-btn secondary">
+                        <i class="fas fa-home"></i> Retour à l'Espace Membre
+                    </a>
+                </div>
+
+                <!-- Corrections détaillées -->
+                <div class="corrections-section">
+                    <h3><i class="fas fa-clipboard-check"></i> Corrections Détaillées</h3>
+                    <div id="corrections-list" class="corrections-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data/test-b1-data.js"></script>
+    <script src="js/test-engine.js"></script>
+    <script>
+        let testEngine;
+
+        // Initialisation au chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            loadBestScore();
+            
+            document.getElementById('start-btn').addEventListener('click', startTest);
+        });
+
+        function loadBestScore() {
+            const stats = JSON.parse(localStorage.getItem('testStats') || '{}');
+            if (stats['test-b1'] && stats['test-b1'].bestScore > 0) {
+                document.getElementById('best-score-display').textContent = stats['test-b1'].bestScore + '%';
+            }
+        }
+
+        function startTest() {
+            // Masquer la page de démarrage
+            document.getElementById('start-page').style.display = 'none';
+            document.getElementById('question-container').style.display = 'block';
+            
+            // Initialiser le moteur de test
+            testEngine = new TestEngine(window.testB1Data);
+            testEngine.start();
+        }
+    </script>
+</body>
+</html>

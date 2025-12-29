@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Démo Gratuite - 40 Questions Test Civique | Integration Plus</title>
+    <meta name="description" content="Testez gratuitement vos connaissances avec 40 questions du test civique français officiel.">
+    <link rel="stylesheet" href="css/demo-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Integration Plus</span>
+                </a>
+                <div class="nav-actions">
+                    <a href="../membre/espace-membre.html" class="btn-membre">Espace Membre</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page de démarrage -->
+    <div id="startPage" class="start-page">
+        <div class="container">
+            <div class="start-content">
+                <div class="badge">Version Démo Gratuite</div>
+                <h1>Test Civique Français</h1>
+                <p class="subtitle">40 Questions Pour Tester Vos Connaissances</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <div>
+                            <strong>40 Questions</strong>
+                            <span>Tirées des tests officiels</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>30 minutes</strong>
+                            <span>Temps recommandé</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong>Corrections</strong>
+                            <span>Détaillées et expliquées</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructions">
+                    <h3>📋 Instructions</h3>
+                    <ul>
+                        <li>Chaque question comporte 3 ou 4 propositions</li>
+                        <li>Une seule réponse est correcte</li>
+                        <li>Vous pouvez revenir sur vos réponses</li>
+                        <li>Un score final vous sera communiqué</li>
+                    </ul>
+                </div>
+
+                <button onclick="startQuiz()" class="btn-start">
+                    <i class="fas fa-play"></i> Commencer le Test
+                </button>
+
+                <div class="cta-membre">
+                    <p>💎 Besoin de plus ? Accédez à <strong>200+ questions</strong> dans l'Espace Membre</p>
+                    <a href="../membre/espace-membre.html">Découvrir →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page du quiz -->
+    <div id="quizPage" class="quiz-page" style="display: none;">
+        <div class="container">
+            <!-- Progress Bar -->
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            
+            <!-- Question Counter -->
+            <div class="question-counter">
+                <span id="currentQuestion">1</span> / 40
+            </div>
+
+            <!-- Question Card -->
+            <div class="question-card">
+                <h2 id="questionText"></h2>
+                <div id="answersContainer" class="answers-container"></div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="nav-buttons">
+                <button id="prevBtn" onclick="previousQuestion()" class="btn-nav" disabled>
+                    <i class="fas fa-arrow-left"></i> Précédent
+                </button>
+                <button id="nextBtn" onclick="nextQuestion()" class="btn-nav btn-primary">
+                    Suivant <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="submitBtn" onclick="submitQuiz()" class="btn-nav btn-success" style="display: none;">
+                    <i class="fas fa-check"></i> Voir les résultats
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page des résultats -->
+    <div id="resultsPage" class="results-page" style="display: none;">
+        <div class="container">
+            <div class="results-content">
+                <div id="resultsHeader" class="results-header"></div>
+                
+                <div class="results-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong id="correctCount">0</strong>
+                            <span>Bonnes réponses</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-times-circle"></i>
+                        <div>
+                            <strong id="incorrectCount">0</strong>
+                            <span>Mauvaises réponses</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-percent"></i>
+                        <div>
+                            <strong id="scorePercent">0%</strong>
+                            <span>Score</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="correctionsContainer" class="corrections-container"></div>
+
+                <div class="results-actions">
+                    <button onclick="retryQuiz()" class="btn-action">
+                        <i class="fas fa-redo"></i> Recommencer
+                    </button>
+                    <a href="../membre/espace-membre.html" class="btn-action btn-membre-cta">
+                        <i class="fas fa-crown"></i> Accéder à l'Espace Membre
+                    </a>
+                </div>
+
+                <div class="upgrade-cta">
+                    <h3>🚀 Vous voulez aller plus loin ?</h3>
+                    <p>Accédez à <strong>200+ questions</strong>, 6 sessions thématiques, tests de français et bien plus !</p>
+                    <a href="../membre/espace-membre.html" class="btn-upgrade">
+                        Découvrir l'Espace Membre Premium
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/quiz-data.js"></script>
+    <script src="js/quiz-app.js"></script>
+</body>
+</html>

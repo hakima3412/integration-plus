@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation Examen | Integration Plus</title>
+    <link rel="stylesheet" href="../css/membre-style.css">
+    <link rel="stylesheet" href="../../demo/css/demo-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../../" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Integration Plus</span>
+                </a>
+                <div class="nav-actions">
+                    <a href="../espace-membre.html" class="btn-membre">← Retour à l'Espace Membre</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page de démarrage -->
+    <div id="startPage" class="start-page">
+        <div class="container">
+            <div class="start-content">
+                <div class="badge premium">Simulation</div>
+                <h1>Simulation Examen</h1>
+                <p class="subtitle">20 Questions dans les Conditions Réelles de l'Examen</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <div>
+                            <strong>20 Questions</strong>
+                            <span>Questions officielles</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>15 minutes</strong>
+                            <span>Temps recommandé</span>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-trophy"></i>
+                        <div>
+                            <strong id="bestScore">0%</strong>
+                            <span>Meilleur score</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="instructions">
+                    <h3>📋 Cette session couvre</h3>
+                    <ul>
+                        <li>Questions aléatoires sur tous les thèmes</li>
+                        <li>Conditions identiques à l'examen officiel</li>
+                        <li>Temps limité pour répondre</li>
+                        <li>Évaluation finale de vos connaissances</li>
+                    </ul>
+                </div>
+
+                <button onclick="startQuiz()" class="btn-start">
+                    <i class="fas fa-play"></i> Commencer la Session
+                </button>
+
+                <div class="cta-membre">
+                    <p id="progressInfo">Progression : 0%</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page du quiz -->
+    <div id="quizPage" class="quiz-page" style="display: none;">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            
+            <div class="question-counter">
+                <span id="currentQuestion">1</span> / 20
+            </div>
+
+            <div class="question-card">
+                <h2 id="questionText"></h2>
+                <div id="answersContainer" class="answers-container"></div>
+            </div>
+
+            <div class="nav-buttons">
+                <button id="prevBtn" onclick="previousQuestion()" class="btn-nav" disabled>
+                    <i class="fas fa-arrow-left"></i> Précédent
+                </button>
+                <button id="nextBtn" onclick="nextQuestion()" class="btn-nav btn-primary">
+                    Suivant <i class="fas fa-arrow-right"></i>
+                </button>
+                <button id="submitBtn" onclick="submitQuiz()" class="btn-nav btn-success" style="display: none;">
+                    <i class="fas fa-check"></i> Terminer
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page des résultats -->
+    <div id="resultsPage" class="results-page" style="display: none;">
+        <div class="container">
+            <div class="results-content">
+                <div id="resultsHeader" class="results-header"></div>
+                
+                <div class="results-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <div>
+                            <strong id="correctCount">0</strong>
+                            <span>Bonnes réponses</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-times-circle"></i>
+                        <div>
+                            <strong id="incorrectCount">0</strong>
+                            <span>Mauvaises réponses</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-percent"></i>
+                        <div>
+                            <strong id="scorePercent">0%</strong>
+                            <span>Score</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="correctionsContainer" class="corrections-container"></div>
+
+                <div class="results-actions">
+                    <button onclick="retryQuiz()" class="btn-action">
+                        <i class="fas fa-redo"></i> Recommencer
+                    </button>
+                    <a href="../espace-membre.html" class="btn-action btn-membre-cta">
+                        <i class="fas fa-arrow-left"></i> Retour à l'Espace Membre
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data/session6-data.js"></script>
+    <script src="../../demo/js/quiz-app.js"></script>
+    <script>
+        // Charger le meilleur score au démarrage
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedProgress = JSON.parse(localStorage.getItem('integrationplus_progress') || '{}');
+            const session6 = savedProgress.session6 || {};
+            
+            if (session6.bestScore) {
+                document.getElementById('bestScore').textContent = session6.bestScore + '%';
+            }
+            
+            if (session6.completed) {
+                document.getElementById('progressInfo').innerHTML = '✅ Session complétée - Score : ' + session6.bestScore + '%';
+            }
+        });
+
+        // Sauvegarder les résultats
+        function saveResults(score, correct, total) {
+            const savedProgress = JSON.parse(localStorage.getItem('integrationplus_progress') || '{}');
+            
+            if (!savedProgress.session6) {
+                savedProgress.session6 = {};
+            }
+            
+            const currentBest = savedProgress.session6.bestScore || 0;
+            if (score > currentBest) {
+                savedProgress.session6.bestScore = score;
+            }
+            
+            savedProgress.session6.lastScore = score;
+            savedProgress.session6.completed = true;
+            savedProgress.session6.lastAttempt = new Date().toISOString();
+            
+            localStorage.setItem('integrationplus_progress', JSON.stringify(savedProgress));
+        }
+
+        // Override de submitQuiz pour sauvegarder
+        const originalSubmitQuiz = submitQuiz;
+        submitQuiz = function() {
+            originalSubmitQuiz();
+            
+            setTimeout(() => {
+                const correctCount = parseInt(document.getElementById('correctCount').textContent);
+                const scorePercent = parseInt(document.getElementById('scorePercent').textContent);
+                saveResults(scorePercent, correctCount, 20);
+            }, 100);
+        };
+    </script>
+</body>
+</html>
