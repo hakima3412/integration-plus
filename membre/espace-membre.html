@@ -3,409 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Espace Membre Integration Plus - Accès complet aux tests de français A2/B1/B2, examen civique 2026 et préparation à la naturalisation">
-    <title>Espace Membre - Integration Plus | Tests A2/B1/B2 & Examen Civique 2026</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <title>Espace Membre Premium | Integration Plus</title>
+    <meta name="description" content="Accédez à 200+ questions de test civique, tests de français, ressources et accompagnement personnalisé.">
+    <link rel="stylesheet" href="css/membre-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header>
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <span class="logo-icon">🎓</span>
-                    <span class="logo-text">Integration Plus</span>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="../" class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Integration Plus</span>
+                </a>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Espace Membre</span>
                 </div>
-                <ul class="nav-menu">
-                    <li><a href="../index.html">Accueil</a></li>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#tarifs">Tarifs</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                    <li><a href="espace-membre.html" class="btn-espace-membre active">Espace Membre</a></li>
-                </ul>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
 
-    <!-- Bannière Bienvenue -->
+    <!-- Hero Section -->
     <section class="hero-membre">
         <div class="container">
-            <h1>Bienvenue dans votre Espace Membre</h1>
-            <p class="hero-subtitle">Préparez-vous efficacement à l'examen civique 2026 et aux tests de français A2, B1, B2</p>
+            <div class="hero-content">
+                <h1>👋 Bienvenue dans Votre Espace Membre Premium</h1>
+                <p>Accédez à tous les outils pour réussir votre intégration en France</p>
+            </div>
         </div>
     </section>
 
-    <!-- Tableau de bord / Progression -->
-    <section class="dashboard">
+    <!-- Main Content -->
+    <div class="main-content">
         <div class="container">
-            <div class="dashboard-grid">
-                <div class="dashboard-card">
-                    <h3>0%</h3>
-                    <p>Progression globale</p>
+            <!-- Statistiques -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <div class="stat-info">
+                        <h3>0%</h3>
+                        <p>Progression globale</p>
+                    </div>
                 </div>
-                <div class="dashboard-card">
-                    <h3>0</h3>
-                    <p>Sessions complétées</p>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-trophy"></i></div>
+                    <div class="stat-info">
+                        <h3>0</h3>
+                        <p>Sessions complétées</p>
+                    </div>
                 </div>
-                <div class="dashboard-card">
-                    <h3>0/250</h3>
-                    <p>Questions réussies</p>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-info">
+                        <h3>0/200</h3>
+                        <p>Questions réussies</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Sessions de Test Civique -->
-    <section class="sessions-civique">
-        <div class="container">
-            <h2>Sessions de Test Civique</h2>
-            <p class="section-intro">6 sessions thématiques avec plus de 250 questions officielles conformes à l'examen civique 2026</p>
+            <!-- Sessions QCM -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-book-open"></i>
+                    Sessions de Test Civique
+                </h2>
+                <p class="section-description">
+                    6 sessions thématiques avec plus de 200 questions officielles
+                </p>
 
-            <div class="sessions-grid">
-                <!-- Session 1 -->
-                <div class="session-card">
-                    <span class="session-badge">Session 1</span>
-                    <h3>Questions Générales</h3>
-                    <p>35 questions sur les principes et valeurs de la République</p>
-                    <div class="session-progress">
-                        <span>Progression : 0%</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
+                <div class="sessions-grid">
+                    <!-- Session 1 -->
+                    <div class="session-card">
+                        <div class="session-badge">Session 1</div>
+                        <div class="session-icon">
+                            <i class="fas fa-question-circle"></i>
                         </div>
-                    </div>
-                    <a href="sessions/session1.html" class="btn-session">Démarrer</a>
-                </div>
-
-                <!-- Session 2 -->
-                <div class="session-card">
-                    <span class="session-badge">Session 2</span>
-                    <h3>Histoire de France</h3>
-                    <p>40 questions sur les grands événements historiques</p>
-                    <div class="session-progress">
-                        <span>Progression : 0%</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
+                        <h3>Questions Générales</h3>
+                        <p>35 questions sur les principes et valeurs de la République</p>
+                        <div class="session-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span>Progression : 0%</span>
                         </div>
+                        <a href="sessions/session1.html" class="btn-session">
+                            <i class="fas fa-play"></i> Démarrer
+                        </a>
                     </div>
-                    <a href="sessions/session2.html" class="btn-session">Démarrer</a>
-                </div>
 
-                <!-- Session 3 -->
-                <div class="session-card">
-                    <span class="session-badge">Session 3</span>
-                    <h3>Valeurs & Symboles</h3>
-                    <p>30 questions sur les symboles de la République</p>
-                    <div class="session-progress">
-                        <span>Progression : 0%</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
+                    <!-- Session 2 -->
+                    <div class="session-card">
+                        <div class="session-badge">Session 2</div>
+                        <div class="session-icon">
+                            <i class="fas fa-landmark"></i>
                         </div>
-                    </div>
-                    <a href="sessions/session3.html" class="btn-session">Démarrer</a>
-                </div>
-
-                <!-- Session 4 -->
-                <div class="session-card">
-                    <span class="session-badge">Session 4</span>
-                    <h3>Institutions</h3>
-                    <p>35 questions sur les institutions françaises et européennes</p>
-                    <div class="session-progress">
-                        <span>Progression : 0%</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
+                        <h3>Histoire de France</h3>
+                        <p>40 questions sur les grands événements historiques</p>
+                        <div class="session-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span>Progression : 0%</span>
                         </div>
+                        <a href="sessions/session2.html" class="btn-session">
+                            <i class="fas fa-play"></i> Démarrer
+                        </a>
                     </div>
-                    <a href="sessions/session4.html" class="btn-session">Démarrer</a>
-                </div>
 
-                <!-- Session 5 -->
-                <div class="session-card">
-                    <span class="session-badge">Session 5</span>
-                    <h3>Droits & Devoirs</h3>
-                    <p>40 questions sur les droits et devoirs du citoyen</p>
-                    <div class="session-progress">
-                        <span>Progression : 0%</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
+                    <!-- Session 3 -->
+                    <div class="session-card">
+                        <div class="session-badge">Session 3</div>
+                        <div class="session-icon">
+                            <i class="fas fa-flag"></i>
                         </div>
-                    </div>
-                    <a href="sessions/session5.html" class="btn-session">Démarrer</a>
-                </div>
-
-                <!-- Session 6 - Simulation -->
-                <div class="session-card simulation">
-                    <span class="session-badge">Simulation</span>
-                    <h3>Simulation Examen</h3>
-                    <p>Test complet avec 40 questions dans les conditions réelles (45 min, 80% requis)</p>
-                    <div class="session-progress">
-                        <span>Progression : 0%</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
+                        <h3>Valeurs & Symboles</h3>
+                        <p>30 questions sur les symboles de la République</p>
+                        <div class="session-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span>Progression : 0%</span>
                         </div>
+                        <a href="sessions/session3.html" class="btn-session">
+                            <i class="fas fa-play"></i> Démarrer
+                        </a>
                     </div>
-                    <a href="sessions/session6.html" class="btn-session btn-simulation">Lancer</a>
+
+                    <!-- Session 4 -->
+                    <div class="session-card">
+                        <div class="session-badge">Session 4</div>
+                        <div class="session-icon">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <h3>Institutions</h3>
+                        <p>35 questions sur les institutions françaises</p>
+                        <div class="session-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span>Progression : 0%</span>
+                        </div>
+                        <a href="sessions/session4.html" class="btn-session">
+                            <i class="fas fa-play"></i> Démarrer
+                        </a>
+                    </div>
+
+                    <!-- Session 5 -->
+                    <div class="session-card">
+                        <div class="session-badge">Session 5</div>
+                        <div class="session-icon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Droits & Devoirs</h3>
+                        <p>40 questions sur les droits et devoirs du citoyen</p>
+                        <div class="session-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span>Progression : 0%</span>
+                        </div>
+                        <a href="sessions/session5.html" class="btn-session">
+                            <i class="fas fa-play"></i> Démarrer
+                        </a>
+                    </div>
+
+                    <!-- Session 6 - Simulation Examen -->
+                    <div class="session-card featured">
+                        <div class="session-badge premium">Simulation</div>
+                        <div class="session-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>Simulation Examen</h3>
+                        <p>Test complet avec 20 questions dans les conditions réelles</p>
+                        <div class="session-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 0%"></div>
+                            </div>
+                            <span>Progression : 0%</span>
+                        </div>
+                        <a href="sessions/session6.html" class="btn-session">
+                            <i class="fas fa-trophy"></i> Lancer
+                        </a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Tests de Niveau de Français -->
-    <section class="tests-francais">
-        <div class="container">
-            <h2>Tests de Niveau de Français</h2>
-            <p class="section-intro">Depuis 2026, les exigences linguistiques ont été renforcées. Évaluez et améliorez votre niveau pour réussir vos démarches.</p>
+            <!-- Tests de Français -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-language"></i>
+                    Tests de Niveau de Français
+                </h2>
+                <p class="section-description">
+                    Évaluez et améliorez votre niveau de français (A2, B1, B2)
+                </p>
 
-            <!-- Tableau récapitulatif -->
-            <div class="niveau-requis-table">
-                <h3>📊 Niveaux Requis en 2026</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Démarche</th>
-                            <th>Niveau Français</th>
-                            <th>Examen Civique</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Carte de séjour pluriannuelle</strong> (2-4 ans)</td>
-                            <td><span class="badge-niveau a2">A2</span> Oral + Écrit</td>
-                            <td><span class="badge-requis">✓ OUI</span> 32/40</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Carte de résident</strong> (10 ans)</td>
-                            <td><span class="badge-niveau b1">B1</span> Oral + Écrit</td>
-                            <td><span class="badge-requis">✓ OUI</span> 32/40</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Naturalisation française</strong></td>
-                            <td><span class="badge-niveau b2">B2</span> Oral + Écrit</td>
-                            <td><span class="badge-requis">✓ OUI</span> 32/40</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Cartes de tests -->
-            <div class="tests-grid">
-                <!-- Test A2 -->
-                <div class="test-card niveau-a2">
-                    <div class="card-header">
-                        <span class="niveau-badge">A2</span>
-                        <h3>Niveau A2 - Élémentaire</h3>
-                    </div>
-                    <p class="requis-pour">✓ Requis pour <strong>Carte de Séjour Pluriannuelle</strong> (2-4 ans)</p>
-                    
-                    <div class="description">
-                        <p>Niveau intermédiaire permettant de communiquer dans des situations simples de la vie quotidienne.</p>
-                    </div>
-
-                    <ul class="competences">
-                        <li><strong>Compréhension orale</strong> - Comprendre des phrases et expressions courantes</li>
-                        <li><strong>Compréhension écrite</strong> - Lire des textes courts et simples</li>
-                        <li><strong>Expression orale</strong> - Échanger sur des sujets familiers</li>
-                        <li><strong>Expression écrite</strong> - Écrire des messages simples</li>
-                    </ul>
-
-                    <div class="test-details">
-                        <span>📝 25 exercices</span>
-                        <span>⏱️ 60 minutes</span>
-                        <span>🎯 50% requis</span>
-                    </div>
-
-                    <a href="tests/test-a2.html" class="btn-test">Commencer le Test A2</a>
-                </div>
-
-                <!-- Test B1 -->
-                <div class="test-card niveau-b1">
-                    <div class="card-header">
-                        <span class="niveau-badge">B1</span>
-                        <h3>Niveau B1 - Intermédiaire</h3>
-                    </div>
-                    <p class="requis-pour">✓ Requis pour <strong>Carte de Résident</strong> (10 ans)</p>
-                    
-                    <div class="description">
-                        <p>Niveau seuil permettant de se débrouiller dans la plupart des situations et de comprendre les points essentiels.</p>
-                    </div>
-
-                    <ul class="competences">
-                        <li><strong>Compréhension orale</strong> - Comprendre un langage clair et standard</li>
-                        <li><strong>Compréhension écrite</strong> - Comprendre des textes sur des sujets courants</li>
-                        <li><strong>Expression orale</strong> - Raconter, décrire, expliquer ses opinions</li>
-                        <li><strong>Expression écrite</strong> - Rédiger un texte simple et cohérent</li>
-                    </ul>
-
-                    <div class="test-details">
-                        <span>📝 35 exercices</span>
-                        <span>⏱️ 90 minutes</span>
-                        <span>🎯 60% requis</span>
-                    </div>
-
-                    <a href="tests/test-b1.html" class="btn-test">Commencer le Test B1</a>
-                </div>
-
-                <!-- Test B2 -->
-                <div class="test-card niveau-b2">
-                    <div class="card-header">
-                        <span class="niveau-badge">B2</span>
-                        <h3>Niveau B2 - Avancé</h3>
-                    </div>
-                    <p class="requis-pour">✓ Requis pour <strong>Naturalisation Française</strong></p>
-                    
-                    <div class="description">
-                        <p>Niveau avancé permettant de comprendre des textes complexes et de s'exprimer spontanément et avec aisance.</p>
-                    </div>
-
-                    <ul class="competences">
-                        <li><strong>Compréhension orale</strong> - Comprendre des conférences et discours longs</li>
-                        <li><strong>Compréhension écrite</strong> - Lire des articles et rapports complexes</li>
-                        <li><strong>Expression orale</strong> - S'exprimer de façon claire et détaillée</li>
-                        <li><strong>Expression écrite</strong> - Rédiger des textes clairs et argumentés</li>
-                    </ul>
-
-                    <div class="test-details">
-                        <span>📝 45 exercices</span>
-                        <span>⏱️ 120 minutes</span>
-                        <span>🎯 70% requis</span>
-                    </div>
-
-                    <a href="tests/test-b2.html" class="btn-test">Commencer le Test B2</a>
-                </div>
-            </div>
-
-            <!-- Encadré important -->
-            <div class="info-box">
-                <h4>📌 Important à savoir</h4>
-                <ul>
-                    <li>Les tests de français doivent être passés auprès d'organismes <strong>agréés officiellement</strong> : TCF, TEF, DELF, DALF</li>
-                    <li>Nos tests vous permettent de <strong>vous préparer</strong> et d'<strong>évaluer votre niveau</strong> avant l'examen officiel</li>
-                    <li>Les attestations officielles sont <strong>obligatoires</strong> pour déposer votre dossier en préfecture</li>
-                    <li>Validité des attestations : <strong>2 ans</strong> à compter de la date d'obtention</li>
-                </ul>
-            </div>
-
-            <!-- CTA -->
-            <div class="cta-francais">
-                <h3>Besoin d'aide pour choisir votre niveau ?</h3>
-                <p>Notre chatbot IA peut vous aider à déterminer quel test passer en fonction de votre situation.</p>
-                <button class="btn-chatbot">💬 Discuter avec l'Assistant</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Ressources Téléchargeables -->
-    <section class="ressources">
-        <div class="container">
-            <h2>Ressources Téléchargeables</h2>
-            
-            <div class="ressources-grid">
-                <div class="ressource-card">
-                    <div class="ressource-icon">📘</div>
-                    <h3>Livret Civique</h3>
-                    <p>Guide complet des valeurs de la République et des institutions françaises</p>
-                    <a href="#" class="btn-download">Télécharger PDF</a>
-                </div>
-
-                <div class="ressource-card">
-                    <div class="ressource-icon">✅</div>
-                    <h3>Checklist Naturalisation</h3>
-                    <p>Liste complète des documents nécessaires pour votre dossier de naturalisation</p>
-                    <a href="#" class="btn-download">Télécharger PDF</a>
-                </div>
-
-                <div class="ressource-card">
-                    <div class="ressource-icon">🏛️</div>
-                    <h3>Guide des Institutions</h3>
-                    <p>Comprendre le fonctionnement des institutions françaises et européennes</p>
-                    <a href="#" class="btn-download">Télécharger PDF</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Nos Services Premium -->
-    <section class="services-premium">
-        <div class="container">
-            <h2>Nos Services Premium</h2>
-            
-            <div class="services-premium-grid">
-                <div class="service-premium-card">
-                    <div class="service-icon">🎥</div>
-                    <h3>Visioconférences</h3>
-                    <p>Séances individuelles ou collectives avec un formateur expert</p>
-                    <a href="../index.html#contact" class="btn-service">Réserver</a>
-                </div>
-
-                <div class="service-premium-card">
-                    <div class="service-icon">📁</div>
-                    <h3>Suivi de Dossier</h3>
-                    <p>Accompagnement pour titres de séjour et naturalisation</p>
-                    <a href="../index.html#contact" class="btn-service">Demander</a>
-                </div>
-
-                <div class="service-premium-card">
-                    <div class="service-icon">🎤</div>
-                    <h3>Coaching Oral</h3>
-                    <p>Préparation intensive aux entretiens en préfecture</p>
-                    <a href="../index.html#contact" class="btn-service">S'inscrire</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="container">
-                <div class="footer-grid">
-                    <div class="footer-col">
-                        <h4>Integration Plus</h4>
-                        <p>Plateforme d'accompagnement pour réussir votre intégration en France. Conforme aux nouvelles exigences 2026.</p>
-                    </div>
-
-                    <div class="footer-col">
-                        <h4>Liens Rapides</h4>
-                        <ul>
-                            <li><a href="../index.html">Accueil</a></li>
-                            <li><a href="../demo/">Version Démo</a></li>
-                            <li><a href="espace-membre.html">Espace Membre</a></li>
-                            <li><a href="../index.html#contact">Contact</a></li>
+                <div class="tests-grid">
+                    <div class="test-card">
+                        <div class="test-badge">A2</div>
+                        <h3>Niveau A2</h3>
+                        <p>Niveau élémentaire - Requis pour carte de résident</p>
+                        <ul class="test-features">
+                            <li><i class="fas fa-check"></i> Compréhension orale</li>
+                            <li><i class="fas fa-check"></i> Expression écrite</li>
+                            <li><i class="fas fa-check"></i> 20 exercices</li>
                         </ul>
+                        <a href="tests/test-a2.html" class="btn-test">
+                            Commencer
+                        </a>
                     </div>
 
-                    <div class="footer-col">
-                        <h4>Ressources Officielles</h4>
-                        <ul>
-                            <li><a href="https://formation-civique.interieur.gouv.fr/" target="_blank" rel="noopener">Formation Civique (Gouv.fr)</a></li>
-                            <li><a href="https://www.service-public.fr/particuliers/vosdroits/F34501" target="_blank" rel="noopener">Service-Public.fr</a></li>
-                            <li><a href="https://www.france-education-international.fr/" target="_blank" rel="noopener">France Éducation International</a></li>
+                    <div class="test-card featured">
+                        <div class="test-badge premium">B1</div>
+                        <h3>Niveau B1</h3>
+                        <p>Niveau intermédiaire - Requis pour naturalisation</p>
+                        <ul class="test-features">
+                            <li><i class="fas fa-check"></i> Compréhension orale</li>
+                            <li><i class="fas fa-check"></i> Expression écrite</li>
+                            <li><i class="fas fa-check"></i> 30 exercices</li>
                         </ul>
+                        <a href="tests/test-b1.html" class="btn-test">
+                            Commencer
+                        </a>
                     </div>
 
-                    <div class="footer-col">
-                        <h4>Contact</h4>
-                        <p>📧 plumeprestige@outlook.fr</p>
-                        <p>📞 +33 6 15 28 23 62</p>
-                        <p>🕐 7j/7 - Disponible</p>
+                    <div class="test-card">
+                        <div class="test-badge">B2</div>
+                        <h3>Niveau B2</h3>
+                        <p>Niveau avancé - Pour emplois qualifiés</p>
+                        <ul class="test-features">
+                            <li><i class="fas fa-check"></i> Compréhension orale</li>
+                            <li><i class="fas fa-check"></i> Expression écrite</li>
+                            <li><i class="fas fa-check"></i> 40 exercices</li>
+                        </ul>
+                        <a href="tests/test-b2.html" class="btn-test">
+                            Commencer
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="footer-legal">
-            <div class="container">
-                <div class="legal-links">
-                    <a href="../mentions-legales.html">Mentions Légales</a>
-                    <span>|</span>
-                    <a href="../cgv.html">CGV</a>
-                    <span>|</span>
-                    <a href="../politique-confidentialite.html">Politique de Confidentialité</a>
+            <!-- Ressources -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-book"></i>
+                    Ressources Téléchargeables
+                </h2>
+
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Livret Civique</h3>
+                        <p>Guide complet des valeurs de la République</p>
+                        <a href="#" onclick="alert('📄 Livret bientôt disponible !'); return false;" class="btn-download">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+
+                    <div class="resource-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Checklist Naturalisation</h3>
+                        <p>Documents nécessaires pour votre dossier</p>
+                        <a href="#" onclick="alert('📄 Checklist bientôt disponible !'); return false;" class="btn-download">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
+
+                    <div class="resource-card">
+                        <i class="fas fa-file-pdf"></i>
+                        <h3>Guide des Institutions</h3>
+                        <p>Comprendre les institutions françaises</p>
+                        <a href="#" onclick="alert('📄 Guide bientôt disponible !'); return false;" class="btn-download">
+                            <i class="fas fa-download"></i> Télécharger
+                        </a>
+                    </div>
                 </div>
-                <p class="copyright">© 2026 Integration Plus - Tous droits réservés</p>
-            </div>
-        </div>
-    </footer>
+            </section>
 
-    <script src="../js/script.js"></script>
+            <!-- Services -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-headset"></i>
+                    Nos Services Premium
+                </h2>
+
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Visioconférences</h3>
+                        <p>Séances individuelles ou collectives avec un formateur</p>
+                        <a href="#" onclick="alert('📞 Réservation bientôt disponible !\\n\\nContactez-nous : contact@integrationplus.eu'); return false;" class="btn-service">
+                            Réserver
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-folder-open"></i>
+                        <h3>Suivi de Dossier</h3>
+                        <p>Accompagnement pour titres de séjour et naturalisation</p>
+                        <a href="#" onclick="alert('📋 Service bientôt disponible !\\n\\nContactez-nous : contact@integrationplus.eu'); return false;" class="btn-service">
+                            Demander
+                        </a>
+                    </div>
+
+                    <div class="service-card">
+                        <i class="fas fa-comments"></i>
+                        <h3>Coaching Oral</h3>
+                        <p>Préparation aux entretiens en préfecture</p>
+                        <a href="#" onclick="alert('🎤 Coaching bientôt disponible !\\n\\nContactez-nous : contact@integrationplus.eu'); return false;" class="btn-service">
+                            S'inscrire
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Chatbot Button -->
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <script src="js/membre.js"></script>
+    <script>
+        // Charger et afficher la progression depuis localStorage
+        window.addEventListener('DOMContentLoaded', function() {
+            const savedProgress = JSON.parse(localStorage.getItem('integrationplus_progress') || '{}');
+            
+            // Calculer la progression globale
+            const sessions = ['session1', 'session2', 'session3', 'session4', 'session5', 'session6'];
+            let completedSessions = 0;
+            let totalScore = 0;
+            let totalQuestions = 0;
+            
+            sessions.forEach((sessionKey, index) => {
+                const session = savedProgress[sessionKey];
+                if (session && session.completed) {
+                    completedSessions++;
+                    if (session.bestScore) {
+                        totalScore += session.bestScore;
+                    }
+                }
+                
+                // Mettre à jour la progression de chaque session
+                const sessionCards = document.querySelectorAll('.session-card');
+                if (sessionCards[index] && session && session.bestScore) {
+                    const progressBar = sessionCards[index].querySelector('.progress-fill');
+                    const progressText = sessionCards[index].querySelector('.session-progress span');
+                    if (progressBar) progressBar.style.width = session.bestScore + '%';
+                    if (progressText) progressText.textContent = 'Progression : ' + session.bestScore + '%';
+                }
+            });
+            
+            // Mettre à jour les stats globales
+            const globalProgress = completedSessions > 0 ? Math.round((completedSessions / 6) * 100) : 0;
+            const avgScore = completedSessions > 0 ? Math.round(totalScore / completedSessions) : 0;
+            
+            const statCards = document.querySelectorAll('.stat-card h3');
+            if (statCards[0]) statCards[0].textContent = globalProgress + '%';
+            if (statCards[1]) statCards[1].textContent = completedSessions;
+            if (statCards[2]) statCards[2].textContent = avgScore + '/100';
+        });
+    </script>
 </body>
 </html>

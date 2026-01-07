@@ -1,126 +1,376 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integration Plus - Réussissez Votre Intégration en France | Examen Civique 2026</title>
-    <meta name="description" content="Préparation complète à l'examen civique 2026 et aux tests de français A2/B1/B2. 250+ questions officielles, taux de réussite 95%. Conforme à la réforme immigration 2026.">
+    <title>Integration Plus - Votre réussite en France</title>
+    <meta name="description" content="Plateforme complète d'accompagnement pour l'intégration en France, préparation au test civique et à la naturalisation française.">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
+    <!-- Navigation -->
+    <nav class="navbar">
         <div class="container">
-            <a href="#" class="logo">🎓 Integration Plus</a>
-            <nav>
-                <ul>
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>Integration Plus</span>
+                </div>
+                <ul class="nav-menu">
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#tarifs">Tarifs</a></li>
                     <li><a href="#temoignages">Témoignages</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="membre/espace-membre.html" class="btn-primary">Espace Membre</a></li>
+                    <li><a href="membre/espace-membre.html" class="btn-membre">Espace Membre</a></li>
                 </ul>
-            </nav>
+                <div class="burger-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <!-- Bannière d'alerte NOUVEAU 2026 -->
-    <div class="alerte-2026">
-        <span class="icon">⚠️</span>
-        <div class="alerte-content">
-            <strong>NOUVEAUTÉ 2026 :</strong> Examen civique obligatoire depuis le 1er janvier 2026 pour toute première demande de carte de séjour pluriannuelle, carte de résident ou naturalisation.
-            <a href="#examen-civique">En savoir plus →</a>
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Réussissez Votre Intégration en France</h1>
+                <p class="hero-subtitle">Accompagnement complet pour le test civique, la naturalisation et votre parcours d'intégration</p>
+                <div class="hero-buttons">
+                    <a href="demo/" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Essai Gratuit - 40 Questions
+                    </a>
+                    <a href="membre/espace-membre.html" class="btn btn-secondary">
+                        <i class="fas fa-lock"></i> Accès Membre
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">200+</span>
+                        <span class="stat-label">Questions</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Exercices</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Taux de réussite</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <!-- Offres Section -->
+    <section class="offres">
+        <div class="container">
+            <h2 class="section-title">Choisissez Votre Parcours</h2>
+            <div class="cards-grid">
+                <!-- Version Démo -->
+                <div class="card-offre demo-card">
+                    <div class="card-badge">Gratuit</div>
+                    <i class="fas fa-rocket card-icon"></i>
+                    <h3>Version Démo</h3>
+                    <p class="card-description">Testez la plateforme avec 40 questions du test civique officiel</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 40 questions authentiques</li>
+                        <li><i class="fas fa-check"></i> Corrections détaillées</li>
+                        <li><i class="fas fa-check"></i> Score instantané</li>
+                        <li><i class="fas fa-check"></i> Aucune inscription</li>
+                    </ul>
+                    <a href="demo/" class="btn btn-card">
+                        <i class="fas fa-play"></i> Commencer Maintenant
+                    </a>
+                </div>
+
+                <!-- Espace Membre -->
+                <div class="card-offre membre-card featured">
+                    <div class="card-badge premium">Premium</div>
+                    <i class="fas fa-crown card-icon"></i>
+                    <h3>Espace Membre</h3>
+                    <p class="card-description">Accès complet à tous nos outils et accompagnement personnalisé</p>
+                    <ul class="card-features">
+                        <li><i class="fas fa-check"></i> 200+ questions test civique</li>
+                        <li><i class="fas fa-check"></i> Tests de niveau (A2, B1, B2)</li>
+                        <li><i class="fas fa-check"></i> 6 sessions thématiques</li>
+                        <li><i class="fas fa-check"></i> Livrets PDF téléchargeables</li>
+                        <li><i class="fas fa-check"></i> Chatbot IA 24/7</li>
+                        <li><i class="fas fa-check"></i> Suivi de progression</li>
+                    </ul>
+                    <a href="membre/espace-membre.html" class="btn btn-card">
+                        <i class="fas fa-arrow-right"></i> Accéder à l'Espace
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Nos Services</h2>
+            <p class="section-subtitle">Un accompagnement complet pour votre réussite</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Test Civique</h3>
+                    <p>200+ questions officielles avec explications détaillées et simulations d'examen</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Tests de Français</h3>
+                    <p>Exercices de niveau A2, B1, B2 pour valider votre maîtrise du français</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Visioconférences</h3>
+                    <p>Séances collectives ou individuelles pour une préparation personnalisée</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-folder-open"></i>
+                    </div>
+                    <h3>Suivi de Dossier</h3>
+                    <p>Accompagnement pour titres de séjour et naturalisation française</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Préparation Orale</h3>
+                    <p>Entraînement aux entretiens en préfecture et à l'oral du test civique</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Assistant IA</h3>
+                    <p>Chatbot disponible 24/7 pour répondre à toutes vos questions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tarifs Section -->
+    <section id="tarifs" class="tarifs">
+        <div class="container">
+            <h2 class="section-title">Nos Formules</h2>
+            <p class="section-subtitle">Choisissez l'offre adaptée à vos besoins</p>
+            <div class="tarifs-grid">
+                <!-- Formule Essentiel -->
+                <div class="tarif-card">
+                    <h3>Essentiel</h3>
+                    <div class="prix">
+                        <span class="montant">79€</span>
+                        <span class="periode">Paiement unique ou 3x sans frais</span>
+                        79€
+                    </div>
+                    <ul class="tarif-features">
+                        <li><i class="fas fa-check"></i> Accès complet au test civique</li>
+                        <li><i class="fas fa-check"></i> 200+ questions</li>
+                        <li><i class="fas fa-check"></i> 6 sessions thématiques</li>
+                        <li><i class="fas fa-check"></i> Chatbot IA</li>
+                        <li><i class="fas fa-check"></i> Livrets PDF</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-tarif">Choisir</a>
+                </div>
+
+                <!-- Formule Premium -->
+                <div class="tarif-card featured">
+                    <div class="tarif-badge">Populaire</div>
+                    <h3>Premium</h3>
+                    <div class="prix">
+                        <span class="montant">149€</span>
+                        <span class="periode">Paiement unique ou 3x sans frais</span>
+                    </div>
+                    <ul class="tarif-features">
+                        <li><i class="fas fa-check"></i> Tout Essentiel +</li>
+                        <li><i class="fas fa-check"></i> Tests de français (A2, B1, B2)</li>
+                        <li><i class="fas fa-check"></i> 2 visioconférences incluses</li>
+                        <li><i class="fas fa-check"></i> Suivi personnalisé</li>
+                        
+                    </ul>
+                    <a href="#contact" class="btn btn-tarif">Choisir</a>
+                </div>
+
+                <!-- Formule Excellence -->
+                <div class="tarif-card">
+                    <h3>Excellence</h3>
+                    <div class="prix">
+                        <span class="montant">249€</span>
+                        <span class="periode">Paiement unique ou 3x sans frais</span>
+                    </div>
+                    <ul class="tarif-features">
+                        <li><i class="fas fa-check"></i> Tout Premium +</li>
+                        <li><i class="fas fa-check"></i> 4 visioconférences incluses</li>
+                        <li><i class="fas fa-check"></i> Suivi complet de dossier</li>
+                        <li><i class="fas fa-check"></i> Préparation entretien préfecture</li>
+                        <li><i class="fas fa-check"></i> Accompagnement personnalisé</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-tarif">Choisir</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages Section -->
+    <section id="temoignages" class="temoignages">
+        <div class="container">
+            <h2 class="section-title">Ils Ont Réussi Avec Nous</h2>
+            <div class="temoignages-grid">
+                <div class="temoignage-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="temoignage-text">"Grâce à Integration Plus, j'ai obtenu ma naturalisation en 6 mois ! Les 200 questions m'ont permis d'être parfaitement préparé. Merci !"</p>
+                    <div class="temoignage-auteur">
+                        <strong>Mohammed A.</strong>
+                        <span>Naturalisé en 2024</span>
+                    </div>
+                </div>
+                <div class="temoignage-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="temoignage-text">"Le suivi personnalisé et les visioconférences ont fait toute la différence. J'ai validé mon niveau B1 du premier coup !"</p>
+                    <div class="temoignage-auteur">
+                        <strong>Sofia L.</strong>
+                        <span>Niveau B1 validé</span>
+                    </div>
+                </div>
+                <div class="temoignage-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="temoignage-text">"Une plateforme complète et professionnelle. Le chatbot répond à toutes mes questions 24/7. Indispensable pour réussir !"</p>
+                    <div class="temoignage-auteur">
+                        <strong>Carlos M.</strong>
+                        <span>Titre de séjour obtenu</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contactez-Nous</h2>
+            <p class="section-subtitle">Une question ? Besoin d'aide ? Nous sommes là pour vous !</p>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:plumeprestige@outlook.fr">plumeprestige@outlook.fr</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <a href="tel:+33615282362">+33 6 15 28 23 62</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Horaires</h4>
+                            <p>7/7 jours</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i> Envoyer
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Integration Plus</span>
+                    </div>
+                    <p>Votre partenaire pour une intégration réussie en France</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#tarifs">Tarifs</a></li>
+                        <li><a href="demo/">Essai Gratuit</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ressources</h4>
+                    <ul>
+                        <li><a href="membre/espace-membre.html">Espace Membre</a></li>
+                        <li><a href="#temoignages">Témoignages</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Suivez-Nous</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Integration Plus. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Button -->
+    <div class="chatbot-button" id="chatbotButton">
+        <i class="fas fa-comments"></i>
     </div>
 
-    <!-- Section Hero -->
-    <section id="accueil" class="hero">
-        <div class="container">
-            <h1>Réussissez Votre Intégration en France</h1>
-            <p>Accompagnement complet pour l'examen civique 2026, les tests de français (A2/B1/B2) et votre naturalisation</p>
-            
-            <div class="hero-buttons">
-                <a href="demo/" class="btn-secondary">📝 Essai Gratuit - 40 Questions</a>
-                <a href="membre/espace-membre.html" class="btn-secondary">👤 Accès Membre</a>
-            </div>
-
-            <!-- Statistiques -->
-            <div class="stats">
-                <div class="stat-item">
-                    <h3>250+</h3>
-                    <p>Questions Officielles</p>
-                    <small>Connaissances + Mises en situation</small>
-                </div>
-                <div class="stat-item">
-                    <h3>80%</h3>
-                    <p>Seuil de Réussite</p>
-                    <small>32/40 à l'examen civique</small>
-                </div>
-                <div class="stat-item">
-                    <h3>95%</h3>
-                    <p>Taux de Réussite</p>
-                    <small>De nos apprenants</small>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Parcours -->
-    <section id="parcours">
-        <div class="container">
-            <h2>Choisissez Votre Parcours</h2>
-            
-            <div class="parcours-grid">
-                <!-- Carte Démo -->
-                <div class="carte-parcours">
-                    <span class="badge-gratuit">Gratuit</span>
-                    <h3>Version Démo</h3>
-                    <p>Testez la plateforme avec 40 questions officielles de l'examen civique 2026</p>
-                    
-                    <ul>
-                        <li>40 questions authentiques (format examen réel)</li>
-                        <li>28 questions de connaissances + 12 mises en situation</li>
-                        <li>Corrections détaillées avec explications</li>
-                        <li>Score instantané et analyse de vos résultats</li>
-                        <li>Aucune inscription requise</li>
-                    </ul>
-                    
-                    <a href="demo/" class="btn-primary">Commencer Maintenant</a>
-                </div>
-
-                <!-- Carte Premium -->
-                <div class="carte-parcours">
-                    <span class="badge-premium">Premium</span>
-                    <h3>Espace Membre</h3>
-                    <p>Accès complet à tous nos outils et accompagnement personnalisé pour réussir en 2026</p>
-                    
-                    <ul>
-                        <li><strong>250+ questions</strong> examen civique (connaissances + mises en situation)</li>
-                        <li><strong>Tests de niveau de français</strong> A2, B1, B2 (oral + écrit)</li>
-                        <li><strong>6 sessions thématiques</strong> conformes au programme officiel</li>
-                        <li><strong>Simulations d'examen</strong> chronométrées (40 questions, 45 min)</li>
-                        <li><strong>Livrets PDF</strong> téléchargeables (guide naturalisation, institutions)</li>
-                        <li><strong>Chatbot IA 24/7</strong> pour répondre à vos questions</li>
-                        <li><strong>Suivi de progression</strong> personnalisé et statistiques détaillées</li>
-                    </ul>
-                    
-                    <a href="membre/espace-membre.html" class="btn-jaune">Accéder à l'Espace</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Examen Civique Obligatoire -->
-    <section id="examen-civique" class="section-examen-civique">
-        <div class="container">
-            <span class="badge-nouveau-2026">NOUVEAU 2026</span>
-            <h2>Examen Civique Obligatoire</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
-                Depuis le 1er janvier 2026, réussir l'examen civique est <strong>obligatoire</strong> pour obtenir un titre de séjour longue durée ou la nationalité française
-            </p>
-
-            <div class="examen-grid">
-                <!-- Qui est concerné -->
-                <div class="carte-examen">
-                    <div class="icone-examen">👥
+    <script src="js/main.js"></script>
+</body>
+</html>
