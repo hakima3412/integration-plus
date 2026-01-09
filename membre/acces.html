@@ -1,45 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Accès membre – Integration Plus</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accès membre - Integration Plus</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#0b1c2d;
+      color:#fff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      margin:0;
+    }
+    .box{
+      background:#112a47;
+      padding:30px;
+      border-radius:12px;
+      width:320px;
+      text-align:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    input{
+      width:100%;
+      padding:12px;
+      margin-top:12px;
+      border-radius:8px;
+      border:none;
+      outline:none;
+    }
+    button{
+      width:100%;
+      padding:12px;
+      margin-top:12px;
+      border-radius:8px;
+      border:none;
+      background:#4fc4d3;
+      font-weight:bold;
+      cursor:pointer;
+    }
+  </style>
 </head>
-<body style="font-family:Arial;background:#0b1c2d;color:white;display:flex;justify-content:center;align-items:center;height:100vh;">
 
-  <div style="background:#112a47;padding:30px;border-radius:10px;width:320px;text-align:center;">
-    <h2>Accès espace membre</h2>
+<body>
 
-    <input id="code" type="text" placeholder="Entrez votre code"
-      style="width:100%;padding:12px;margin:15px 0;border-radius:6px;border:none;">
+  <!-- ✅ ICI : l’interface -->
+  <div class="box">
+    <h2>Accès Espace Membre</h2>
 
-    <button onclick="verifierCode()"
-      style="width:100%;padding:12px;background:#f4c430;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">
+    <input
+      type="text"
+      id="code"
+      placeholder="Entrez votre code d’accès"
+    />
+
+    <button onclick="verifierCode()">
       Accéder
     </button>
   </div>
 
-<script>
-const CODES = {
-  "ESS-49-A9F3": "essentiel",
-  "PRE-79-XP22": "premium",
-  "EXC-149-ZA99": "excellence"
-};
+  <!-- ✅ ICI : le script -->
+  <script>
+    const CODES = {
+      "ESS-49-A9F3": "essentiel",
+      "PRE-79-XP22": "premium",
+      "EXC-149-ZA99": "excellence"
+    };
 
-function verifierCode() {
-  const code = document.getElementById("code").value.trim();
+    function verifierCode() {
+      const code = document.getElementById("code").value.trim();
 
-  if (!CODES[code]) {
-    alert("❌ Code invalide");
-    return;
-  }
+      // ✅ IMPORTANT : la condition correcte c’est "si le code n’existe pas"
+      if (!CODES[code]) {
+        alert("❌ Code invalide");
+        return;
+      }
 
-  localStorage.setItem("code_actif", code);
-  localStorage.setItem("formule", CODES[code]);
+      localStorage.setItem("code_actif", code);
+      localStorage.setItem("formule", CODES[code]);
 
-  window.location.href = "espace-membre.html";
-}
-</script>
+      // vers la page membre
+      window.location.href = "espace-membre.html";
+    }
+  </script>
 
 </body>
 </html>
