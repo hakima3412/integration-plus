@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accès membre - Integration Plus</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0b1c2d;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .box {
+            background: #132c47;
+            padding: 30px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            background: #f5b301;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .error {
+            color: #ff6b6b;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Accès membre</h2>
+    <p>Entrez votre code d’accès</p>
+
+    <input type="password" id="code" placeholder="Code d’accès">
+    <button onclick="verifier()">Accéder</button>
+
+    <div class="error" id="error"></div>
+</div>
+
+<script>
+function verifier() {
+    const code = document.getElementById("code").value;
+
+    if (code === "ESSENTIEL49") {
+        window.location.href = "espace-membre.html";
+    } 
+    else if (code === "PREMIUM79") {
+        window.location.href = "espace-membre.html";
+    } 
+    else if (code === "EXCELLENCE149") {
+        window.location.href = "espace-membre.html";
+    } 
+    else {
+        document.getElementById("error").innerText = "Code incorrect";
+    }
+}
+</script>
+
+</body>
+</html>
