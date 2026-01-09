@@ -1,78 +1,43 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Accès membre - Integration Plus</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0b1c2d;
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .box {
-            background: #132c47;
-            padding: 30px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 400px;
-            text-align: center;
-        }
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-top: 15px;
-            border-radius: 6px;
-            border: none;
-        }
-        button {
-            margin-top: 20px;
-            padding: 12px;
-            width: 100%;
-            background: #f5b301;
-            border: none;
-            border-radius: 6px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        .error {
-            color: #ff6b6b;
-            margin-top: 15px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Accès membre – Integration Plus</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body style="font-family:Arial;background:#0b1c2d;color:white;display:flex;justify-content:center;align-items:center;height:100vh;">
 
-<div class="box">
-    <h2>Accès membre</h2>
-    <p>Entrez votre code d’accès</p>
+  <div style="background:#112a47;padding:30px;border-radius:10px;width:320px;text-align:center;">
+    <h2>Accès espace membre</h2>
 
-    <input type="password" id="code" placeholder="Code d’accès">
-    <button onclick="verifier()">Accéder</button>
+    <input id="code" type="text" placeholder="Entrez votre code"
+      style="width:100%;padding:12px;margin:15px 0;border-radius:6px;border:none;">
 
-    <div class="error" id="error"></div>
-</div>
+    <button onclick="verifierCode()"
+      style="width:100%;padding:12px;background:#f4c430;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">
+      Accéder
+    </button>
+  </div>
 
 <script>
-function verifier() {
-    const code = document.getElementById("code").value;
+const CODES = {
+  "ESS-49-A9F3": "essentiel",
+  "PRE-79-XP22": "premium",
+  "EXC-149-ZA99": "excellence"
+};
 
-    if (code === "ESSENTIEL49") {
-        window.location.href = "espace-membre.html";
-    } 
-    else if (code === "PREMIUM79") {
-        window.location.href = "espace-membre.html";
-    } 
-    else if (code === "EXCELLENCE149") {
-        window.location.href = "espace-membre.html";
-    } 
-    else {
-        document.getElementById("error").innerText = "Code incorrect";
-    }
+function verifierCode() {
+  const code = document.getElementById("code").value.trim();
+
+  if (!CODES[code]) {
+    alert("❌ Code invalide");
+    return;
+  }
+
+  localStorage.setItem("code_actif", code);
+  localStorage.setItem("formule", CODES[code]);
+
+  window.location.href = "espace-membre.html";
 }
 </script>
 
