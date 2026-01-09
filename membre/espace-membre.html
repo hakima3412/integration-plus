@@ -403,5 +403,26 @@ merci de nous contacter directement par <strong>e-mail</strong> ou <strong>Whats
             if (statCards[2]) statCards[2].textContent = avgScore + '/100';
         });
     </script>
+    <script>
+const formule = localStorage.getItem("formule");
+
+if (!formule) {
+  window.location.href = "acces.html";
+}
+
+const titre = document.querySelector("h1");
+
+if (formule === "essentiel") {
+  titre.innerText = "Bienvenue dans votre espace Essentiel";
+}
+
+if (formule === "premium") {
+  titre.innerText = "Bienvenue dans votre espace Premium";
+}
+
+if (formule === "excellence") {
+  titre.innerText = "Bienvenue dans votre espace Excellence";
+}
+</script>
 </body>
 </html>
