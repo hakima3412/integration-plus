@@ -81,10 +81,22 @@
 
       localStorage.setItem("code_actif", code);
       localStorage.setItem("formule", CODES[code]);
+      const formule = CODES[code];
 
-      // vers la page membre
-      window.location.href = "espace-membre.html";
-    }
+if (formule === "essentiel") {
+  window.location.href = "espace-essentiel.html";
+}
+
+if (formule === "premium") {
+  window.location.href = "espace-premium.html";
+}
+
+if (formule === "excellence") {
+  window.location.href = "espace-excellence.html";
+}
+
+
+         }
   </script>
 
 </body>
