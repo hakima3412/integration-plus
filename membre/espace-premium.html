@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Espace Premium</title>
+
+  <script>
+    // Protection : accès réservé au plan PREMIUM
+    if (localStorage.getItem("iplan") !== "premium") {
+      window.location.href = "acces.html";
+    }
+  </script>
+</head>
+
+<body>
+  <h1>Bienvenue dans l’espace PREMIUM</h1>
+  <p>Contenu réservé à la formule Premium.</p>
+
+  <ul>
+    <li>✔ Accès complet</li>
+    <li>✔ Ressources avancées</li>
+    <li>✔ Accompagnement prioritaire</li>
+  </ul>
+</body>
+</html>
