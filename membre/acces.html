@@ -63,17 +63,14 @@
   </div>
   <hr>
   <!-- ✅ ICI : le script -->
- <script>
-  // 🔐 Codes sécurisés (hash SHA-256 → formule)
-  const CODE_HASH_TO_PLAN = {
-    // ESS-49-A9F3
-    "e6a39adad2f6bda9aedbe229e071037456f2724ff1fd9a7ff60d7a2ac00d9b03": "essentiel",
-
-    // PRE-79-XP22
-    "544468fc0f904d00f1a9009c274d8254bafc9e9464224d6dcc682271a6bad5ac": "premium",
-
-    // EXC-149-ZA99
-    "4067fac843188444a5333f4a71df73db232eddb538dc1a64704d994e29151551": "excellence"
+ 
+<script>
+  // ✅ Codes autorisés (en clair -> on calcule le hash)
+  // Tu peux changer ces 3 codes si tu veux, mais garde le même format.
+  const CODES_CLAIRS = {
+    "ESS-49-A9F3": "essentiel",
+    "PRE-79-XP22": "premium",
+    "EXC-149-ZA99": "excellence"
   };
 
   async function sha256Hex(text) {
@@ -85,29 +82,41 @@
   }
 
   async function verifierCode() {
-    const code = document.getElementById("code").value.trim().toUpperCase();
+    const input = document.getElementById("code");
+    const code = (input.value || "").trim().toUpperCase();
 
     if (!code) {
       alert("❌ Merci de saisir un code");
       return;
     }
 
-    const hash = await sha256Hex(code);
-    const plan = CODE_HASH_TO_PLAN[hash];
-
+    // 1) Vérifie que le code existe dans la liste
+    const plan = CODES_CLAIRS[code];
     if (!plan) {
       alert("❌ Code invalide");
       return;
     }
 
-    // ✅ Accès illimité après paiement
+    // 2) Stocke l’accès (simple)
     localStorage.setItem("plan_acces", plan);
 
+    // 3) Redirige vers la bonne page
     if (plan === "essentiel") window.location.href = "espace-essentiel.html";
     if (plan === "premium") window.location.href = "espace-premium.html";
     if (plan === "excellence") window.location.href = "espace-excellence.html";
   }
+
+  // ✅ Bonus : appuyer sur Entrée valide aussi
+  document.addEventListener("DOMContentLoaded", () => {
+    const input = document.getElementById("code");
+    if (input) {
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") verifierCode();
+      });
+    }
+  });
 </script>
 
 </body>
 </html>
+
