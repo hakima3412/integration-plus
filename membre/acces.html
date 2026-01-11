@@ -57,56 +57,48 @@
       placeholder="Entrez votre code d’accès"
     />
 
-    <button onclick="verifierCode()">
-      Accéder
-    </button>
+  <button type="button" onclick="verifierCode()">
+  Accéder
+</button>
+
   </div>
   <hr>
   <!-- ✅ ICI : le script -->
  
 <script>
-  // ✅ Codes autorisés (en clair -> on calcule le hash)
-  // Tu peux changer ces 3 codes si tu veux, mais garde le même format.
+<script>
+  // Codes autorisés
   const CODES_CLAIRS = {
     "ESS-49-A9F3": "essentiel",
     "PRE-79-XP22": "premium",
     "EXC-149-ZA99": "excellence"
   };
 
-  async function sha256Hex(text) {
-    const data = new TextEncoder().encode(text);
-    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
-    return Array.from(new Uint8Array(hashBuffer))
-      .map(b => b.toString(16).padStart(2, "0"))
-      .join("");
-  }
-
-  async function verifierCode() {
+  function verifierCode() {
     const input = document.getElementById("code");
-    const code = (input.value || "").trim().toUpperCase();
+    const code = (input?.value || "").trim().toUpperCase();
 
     if (!code) {
-      alert("❌ Merci de saisir un code");
+    
+
+alert("Merci de saisir un code");
       return;
     }
 
-    // 1) Vérifie que le code existe dans la liste
     const plan = CODES_CLAIRS[code];
     if (!plan) {
-      alert("❌ Code invalide");
+      alert("Code invalide");
       return;
     }
 
-    // 2) Stocke l’accès (simple)
     localStorage.setItem("plan_acces", plan);
 
-    // 3) Redirige vers la bonne page
     if (plan === "essentiel") window.location.href = "espace-essentiel.html";
     if (plan === "premium") window.location.href = "espace-premium.html";
     if (plan === "excellence") window.location.href = "espace-excellence.html";
   }
 
-  // ✅ Bonus : appuyer sur Entrée valide aussi
+  // Bonus : Entrée = valider
   document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("code");
     if (input) {
