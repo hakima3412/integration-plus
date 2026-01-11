@@ -61,43 +61,60 @@
       Accéder
     </button>
   </div>
+  <hr>
+<p style="color: green; font-weight: bold;">
+✅ Accès ESSENTIEL validé – cette page fonctionne correctement.
+</p>
+<p>
+Ici s’affichera le contenu de la formule Essentiel.
+</p>
 
   <!-- ✅ ICI : le script -->
-  <script>
-    const CODES = {
-      "ESS-49-A9F3": "essentiel",
-      "PRE-79-XP22": "premium",
-      "EXC-149-ZA99": "excellence"
-    };
+ <script>
+  // 🔐 Codes sécurisés (hash SHA-256 → formule)
+  const CODE_HASH_TO_PLAN = {
+    // ESS-49-A9F3
+    "e6a39adad2f6bda9aedbe229e071037456f2724ff1fd9a7ff60d7a2ac00d9b03": "essentiel",
 
-    function verifierCode() {
-      const code = document.getElementById("code").value.trim();
+    // PRE-79-XP22
+    "544468fc0f904d00f1a9009c274d8254bafc9e9464224d6dcc682271a6bad5ac": "premium",
 
-      // ✅ IMPORTANT : la condition correcte c’est "si le code n’existe pas"
-      if (!CODES[code]) {
-        alert("❌ Code invalide");
-        return;
-      }
+    // EXC-149-ZA99
+    "4067fac843188444a5333f4a71df73db232eddb538dc1a64704d994e29151551": "excellence"
+  };
 
-      localStorage.setItem("code_actif", code);
-      localStorage.setItem("formule", CODES[code]);
-      const formule = CODES[code];
+  async function sha256Hex(text) {
+    const data = new TextEncoder().encode(text);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(hashBuffer))
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
 
-if (formule === "essentiel") {
-  window.location.href = "espace-essentiel.html";
-}
+  async function verifierCode() {
+    const code = document.getElementById("code").value.trim().toUpperCase();
 
-if (formule === "premium") {
-  window.location.href = "espace-premium.html";
-}
+    if (!code) {
+      alert("❌ Merci de saisir un code");
+      return;
+    }
 
-if (formule === "excellence") {
-  window.location.href = "espace-excellence.html";
-}
+    const hash = await sha256Hex(code);
+    const plan = CODE_HASH_TO_PLAN[hash];
 
+    if (!plan) {
+      alert("❌ Code invalide");
+      return;
+    }
 
-         }
-  </script>
+    // ✅ Accès illimité après paiement
+    localStorage.setItem("plan_acces", plan);
+
+    if (plan === "essentiel") window.location.href = "espace-essentiel.html";
+    if (plan === "premium") window.location.href = "espace-premium.html";
+    if (plan === "excellence") window.location.href = "espace-excellence.html";
+  }
+</script>
 
 </body>
 </html>
