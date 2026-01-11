@@ -57,7 +57,7 @@
       placeholder="Entrez votre code d’accès"
     />
 
-  <button type="button" onclick="verifierCode()">
+ <button id="btn-acceder" type="button">
   Accéder
 </button>
 
@@ -66,8 +66,7 @@
   <!-- ✅ ICI : le script -->
  
 <script>
-<script>
-  // Codes autorisés
+  // ✅ Codes autorisés
   const CODES_CLAIRS = {
     "ESS-49-A9F3": "essentiel",
     "PRE-79-XP22": "premium",
@@ -79,9 +78,7 @@
     const code = (input?.value || "").trim().toUpperCase();
 
     if (!code) {
-    
-
-alert("Merci de saisir un code");
+      alert("Merci de saisir un code");
       return;
     }
 
@@ -98,16 +95,23 @@ alert("Merci de saisir un code");
     if (plan === "excellence") window.location.href = "espace-excellence.html";
   }
 
-  // Bonus : Entrée = valider
+  // ✅ Entrée = valider + clic bouton
   document.addEventListener("DOMContentLoaded", () => {
     const input = document.getElementById("code");
+    const btn = document.getElementById("btn-acceder");
+
     if (input) {
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") verifierCode();
       });
     }
+
+    if (btn) {
+      btn.addEventListener("click", verifierCode);
+    }
   });
 </script>
+
 
 </body>
 </html>
