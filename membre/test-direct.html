@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Direct - Integration Plus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1c2d;
+      color: #fff;
+      padding: 40px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #112a47;
+      padding: 30px;
+      border-radius: 12px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #4fc4d3;
+      color: #0b1c2d;
+      text-decoration: none;
+      border-radius: 8px;
+      margin: 10px;
+      font-weight: bold;
+    }
+    .info {
+      background: rgba(79, 196, 211, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Page de Test Direct</h1>
+    
+    <div class="info">
+      <h3>État du localStorage :</h3>
+      <p id="storage-info">Chargement...</p>
+    </div>
+    
+    <div class="info">
+      <h3>Tests directs :</h3>
+      <p>Cliquez sur un bouton pour accéder à une formule :</p>
+      <button class="btn" onclick="setFormule('essentiel')">📦 Essentiel</button>
+      <button class="btn" onclick="setFormule('premium')">⭐ Premium</button>
+      <button class="btn" onclick="setFormule('excellence')">👑 Excellence</button>
+    </div>
+    
+    <div class="info">
+      <h3>Navigation :</h3>
+      <a href="acces.html" class="btn">🔐 Page de connexion</a>
+      <a href="espace-membre.html" class="btn">🏠 Espace membre</a>
+    </div>
+  </div>
+  
+  <script>
+    // Afficher l'état du localStorage
+    function updateStorageInfo() {
+      const plan = localStorage.getItem('plan_acces');
+      const info = document.getElementById('storage-info');
+      
+      if (plan) {
+        info.innerHTML = `✅ <strong>plan_acces =</strong> "${plan}"`;
+        info.style.color = '#4fc4d3';
+      } else {
+        info.innerHTML = `❌ <strong>Aucun plan enregistré</strong> (localStorage vide)`;
+        info.style.color = '#ff6b6b';
+      }
+    }
+    
+    // Définir une formule et accéder à l'espace membre
+    function setFormule(formule) {
+      localStorage.setItem('plan_acces', formule);
+      alert(`✅ Formule "${formule}" enregistrée dans le localStorage !`);
+      updateStorageInfo();
+      
+      // Rediriger vers l'espace membre après 1 seconde
+      setTimeout(() => {
+        window.location.href = 'espace-membre.html';
+      }, 1000);
+    }
+    
+    // Au chargement de la page
+    window.addEventListener('DOMContentLoaded', () => {
+      updateStorageInfo();
+    });
+  </script>
+</body>
+</html>
