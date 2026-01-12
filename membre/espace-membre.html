@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Membre - Integration Plus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a2332 0%, #2d3e5f 100%);
+            min-height: 100vh;
+            color: #ffffff;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .btn-logout {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .welcome-card h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #00d4ff;
+        }
+
+        .formule-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card h3 {
+            font-size: 2rem;
+            color: #00d4ff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        .sessions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .session-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .session-card:hover {
+            transform: translateY(-5px);
+            border-color: #00d4ff;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .session-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+
+        .session-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            background: rgba(255, 255, 255, 0.1);
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #00d4ff 0%, #667eea 100%);
+            height: 100%;
+            transition: width 0.3s;
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .alert {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            color: #ffc107;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .stats-grid,
+            .sessions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            🎓 Integration Plus
+        </div>
+        <div class="user-info">
+            <span id="userFormule">Membre</span>
+            <button class="btn-logout" onclick="deconnexion()">Déconnexion</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Message de Bienvenue -->
+        <div class="welcome-card">
+            <h1>Bienvenue dans votre Espace Membre ! 🎉</h1>
+            <p>Préparez-vous efficacement à l'examen civique 2026 et aux tests de français</p>
+            <span class="formule-badge" id="formuleBadge">Formule</span>
+        </div>
+
+        <!-- Alerte Système -->
+        <div class="alert">
+            ⚠️ <strong>Système en cours de configuration</strong> - Les sessions de test seront disponibles prochainement. Votre accès est confirmé !
+        </div>
+
+        <!-- Statistiques -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3 id="statProgression">0%</h3>
+                <p>Progression globale</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="statSessions">0</h3>
+                <p>Sessions complétées</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="statQuestions">0/250</h3>
+                <p>Questions réussies</p>
+            </div>
+        </div>
+
+        <!-- Sessions de Test -->
+        <h2 style="margin-bottom: 1.5rem; font-size: 1.8rem;">📚 Sessions de Test Civique</h2>
+        <div class="sessions-grid">
+            <div class="session-card">
+                <h3>Session 1</h3>
+                <p>Questions Générales - 35 questions</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
+                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Session 2</h3>
+                <p>Histoire de France - 40 questions</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
+                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Session 3</h3>
+                <p>Valeurs & Symboles - 30 questions</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
+                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Session 4</h3>
+                <p>Institutions - 35 questions</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
+                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Session 5</h3>
+                <p>Droits & Devoirs - 40 questions</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
+                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Simulation Examen</h3>
+                <p>Test complet - 40 questions (45 min)</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
+                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Lancer</button>
+            </div>
+        </div>
+
+        <!-- Tests de Français -->
+        <h2 style="margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">🇫🇷 Tests de Niveau de Français</h2>
+        <div class="sessions-grid">
+            <div class="session-card">
+                <h3>Test A2</h3>
+                <p>25 exercices - 60 minutes - 50% requis</p>
+                <button class="btn-start" onclick="alert('Test bientôt disponible !')">Commencer le Test A2</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Test B1</h3>
+                <p>35 exercices - 90 minutes - 60% requis</p>
+                <button class="btn-start" onclick="alert('Test bientôt disponible !')">Commencer le Test B1</button>
+            </div>
+
+            <div class="session-card">
+                <h3>Test B2</h3>
+                <p>45 exercices - 120 minutes - 70% requis</p>
+                <button class="btn-start" onclick="alert('Test bientôt disponible !')">Commencer le Test B2</button>
+            </div>
+        </div>
+
+        <!-- Bouton retour -->
+        <div style="text-align: center; margin: 3rem 0;">
+            <a href="../index.html" style="color: #00d4ff; text-decoration: none; font-size: 1.1rem; font-weight: 600;">
+                🏠 Retour à l'accueil
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Vérifier l'authentification au chargement
+        window.addEventListener('DOMContentLoaded', function() {
+            const plan = localStorage.getItem('plan_acces');
+
+            // Si pas de plan, rediriger vers la page de connexion
+            if (!plan) {
+                window.location.href = 'acces.html';
+                return;
+            }
+
+            // Afficher la formule
+            const formuleNames = {
+                'essentiel': '📦 Formule Essentiel',
+                'premium': '⭐ Formule Premium',
+                'excellence': '👑 Formule Excellence'
+            };
+            
+            const formuleName = formuleNames[plan] || 'Membre';
+            document.getElementById('userFormule').textContent = formuleName;
+            document.getElementById('formuleBadge').textContent = formuleName;
+        });
+
+        // Fonction de déconnexion
+        function deconnexion() {
+            if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
+                localStorage.removeItem('plan_acces');
+                window.location.href = 'acces.html';
+            }
+        }
+    </script>
+</body>
+</html>
