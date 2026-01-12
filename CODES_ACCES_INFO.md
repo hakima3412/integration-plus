@@ -22,12 +22,26 @@ Voici les **3 codes** que vos membres peuvent utiliser :
 - Si valide → redirection vers l'espace correspondant
 - Si invalide → message d'erreur
 
-### 2️⃣ Protection des espaces membres
+### 2️⃣ Pages de présentation des formules
+- **espace-essentiel.html** : Page d'accueil pour les membres Essentiel
+- **espace-premium.html** : Page d'accueil pour les membres Premium
+- **espace-excellence.html** : Page d'accueil pour les membres Excellence
+- Chaque page présente les avantages de la formule
+- Bouton pour accéder aux tests et sessions
+
+### 3️⃣ Espace membre centralisé : `espace-membre.html`
+- **Page principale** avec tous les tests et sessions
+- Affiche les statistiques de progression
+- Sessions de test civique (6 sessions)
+- Tests de niveau de français (A2, B1, B2)
+- Navigation fluide entre les sections
+
+### 4️⃣ Protection des espaces membres
 - Chaque page vérifie si l'utilisateur a le bon accès
 - Utilisation du `localStorage` pour mémoriser la formule
 - Si quelqu'un essaie d'accéder sans code → retour à `acces.html`
 
-### 3️⃣ Déconnexion
+### 5️⃣ Déconnexion
 - Chaque espace a un bouton "Se déconnecter"
 - Cela efface l'accès et retourne à la page de connexion
 
@@ -53,16 +67,26 @@ Voici les **3 codes** que vos membres peuvent utiliser :
 
 ## 🧪 Comment tester
 
-1. Allez sur : https://hakima3412.github.io/integration-plus/membre/acces.html
+1. **Page de connexion** : https://hakima3412.github.io/integration-plus/membre/acces.html
 
-2. Testez chaque code :
-   - Entrez `ESS-49-A9F3` → Vous arrivez sur l'espace Essentiel
-   - Entrez `PRE-79-XP22` → Vous arrivez sur l'espace Premium
-   - Entrez `EXC-149-ZA99` → Vous arrivez sur l'espace Excellence
+2. **Testez chaque code** :
+   - Entrez `ESS-49-A9F3` → Page de présentation Essentiel
+   - Entrez `PRE-79-XP22` → Page de présentation Premium
+   - Entrez `EXC-149-ZA99` → Page de présentation Excellence
 
-3. Essayez un mauvais code → Vous verrez "Code invalide"
+3. **Accédez aux tests** :
+   - Sur chaque page de formule, cliquez sur "📚 Accéder aux Tests et Sessions"
+   - Vous arrivez sur l'espace membre avec toutes les sessions de test
 
-4. Cliquez sur "Se déconnecter" → Retour à la page de connexion
+4. **Navigation** :
+   - "🏠 Retour à l'accueil" → Retourne sur la page principale du site
+   - "🚪 Se déconnecter" → Efface l'accès et retourne à la connexion
+
+5. **Essayez un mauvais code** → Vous verrez "Code invalide"
+
+6. **Test de protection** :
+   - Essayez d'accéder directement à https://hakima3412.github.io/integration-plus/membre/espace-membre.html sans code
+   - Vous serez redirigé vers la page de connexion ✅
 
 ---
 
