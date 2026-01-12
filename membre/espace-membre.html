@@ -295,20 +295,20 @@
 
         <!-- Tests de Français -->
         <h2 style="margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">🇫🇷 Tests de Niveau de Français</h2>
-        <div class="sessions-grid">
-            <div class="session-card">
+        <div class="sessions-grid" id="francais-tests">
+            <div class="session-card test-a2">
                 <h3>Test A2</h3>
                 <p>30 exercices - 45 minutes - 50% requis</p>
                 <button class="btn-start" onclick="window.location.href='tests/test-a2.html'">Commencer le Test A2</button>
             </div>
 
-            <div class="session-card">
+            <div class="session-card test-b1">
                 <h3>Test B1</h3>
                 <p>35 exercices - 60 minutes - 60% requis</p>
                 <button class="btn-start" onclick="window.location.href='tests/test-b1.html'">Commencer le Test B1</button>
             </div>
 
-            <div class="session-card">
+            <div class="session-card test-b2">
                 <h3>Test B2</h3>
                 <p>40 exercices - 90 minutes - 70% requis</p>
                 <button class="btn-start" onclick="window.location.href='tests/test-b2.html'">Commencer le Test B2</button>
@@ -345,6 +345,9 @@
             document.getElementById('userFormule').textContent = formuleName;
             document.getElementById('formuleBadge').textContent = formuleName;
             
+            // Filtrer les tests selon la formule
+            filterTestsByFormule(plan);
+            
             // Charger les progressions
             loadProgress();
         });
@@ -354,6 +357,24 @@
             if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
                 localStorage.removeItem('plan_acces');
                 window.location.href = 'acces.html';
+            }
+        }
+        
+        // Filtrer les tests selon la formule
+        function filterTestsByFormule(plan) {
+            const testB2 = document.querySelector('.test-b2');
+            
+            // Formule ESSENTIEL : masquer le Test B2
+            if (plan === 'essentiel') {
+                if (testB2) {
+                    testB2.style.display = 'none';
+                }
+            }
+            // Formules PREMIUM et EXCELLENCE : afficher tous les tests
+            else {
+                if (testB2) {
+                    testB2.style.display = 'block';
+                }
             }
         }
         
