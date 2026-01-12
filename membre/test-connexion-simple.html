@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Connexion Simple</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b1c2d 0%, #1a3a52 100%);
+      color: #fff;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #112a47;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.4);
+    }
+    h1 {
+      color: #4fc4d3;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .info-box {
+      background: rgba(79, 196, 211, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px 0;
+      border: 2px solid #4fc4d3;
+    }
+    .status {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+    .success {
+      color: #4fc4d3;
+    }
+    .error {
+      color: #ff6b6b;
+    }
+    button {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+    }
+    .btn-essentiel {
+      background: #4fc4d3;
+      color: #0b1c2d;
+    }
+    .btn-premium {
+      background: #d4af37;
+      color: #1a0033;
+    }
+    .btn-excellence {
+      background: linear-gradient(135deg, #ff6b6b, #ffd700);
+      color: #1a0000;
+    }
+    .btn-clear {
+      background: #dc3545;
+      color: white;
+    }
+    code {
+      background: rgba(255,255,255,0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .link {
+      display: block;
+      color: #4fc4d3;
+      text-decoration: none;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🧪 Test de Connexion Simple</h1>
+    
+    <div class="info-box">
+      <div class="status" id="status">⏳ Vérification du localStorage...</div>
+      <div id="details"></div>
+    </div>
+    
+    <div class="info-box">
+      <h3 style="margin-bottom: 15px;">🎯 Définir une formule :</h3>
+      <p style="margin-bottom: 15px; font-size: 14px;">
+        Cliquez sur un bouton pour enregistrer la formule dans le navigateur :
+      </p>
+      
+      <button class="btn-essentiel" onclick="definirFormule('essentiel')">
+        📦 FORMULE ESSENTIEL
+      </button>
+      
+      <button class="btn-premium" onclick="definirFormule('premium')">
+        ⭐ FORMULE PREMIUM
+      </button>
+      
+      <button class="btn-excellence" onclick="definirFormule('excellence')">
+        👑 FORMULE EXCELLENCE
+      </button>
+      
+      <button class="btn-clear" onclick="effacerLocalStorage()">
+        🗑️ Effacer le localStorage
+      </button>
+    </div>
+    
+    <a href="espace-membre.html" class="link">
+      🏠 Aller à l'Espace Membre →
+    </a>
+    
+    <a href="acces.html" class="link">
+      🔐 Retour à la page de connexion
+    </a>
+  </div>
+  
+  <script>
+    // Fonction pour vérifier le localStorage
+    function verifierLocalStorage() {
+      const plan = localStorage.getItem('plan_acces');
+      const statusEl = document.getElementById('status');
+      const detailsEl = document.getElementById('details');
+      
+      if (plan) {
+        statusEl.className = 'status success';
+        statusEl.innerHTML = '✅ localStorage trouvé !';
+        detailsEl.innerHTML = `
+          <p><strong>Clé :</strong> <code>plan_acces</code></p>
+          <p><strong>Valeur :</strong> <code>${plan}</code></p>
+          <p style="margin-top: 10px; color: #4fc4d3;">
+            ✅ Vous pouvez maintenant accéder à l'espace membre !
+          </p>
+        `;
+      } else {
+        statusEl.className = 'status error';
+        statusEl.innerHTML = '❌ localStorage vide';
+        detailsEl.innerHTML = `
+          <p>Le localStorage ne contient pas de formule.</p>
+          <p style="margin-top: 10px;">
+            👆 Cliquez sur un bouton ci-dessus pour définir une formule.
+          </p>
+        `;
+      }
+    }
+    
+    // Fonction pour définir une formule
+    function definirFormule(formule) {
+      localStorage.setItem('plan_acces', formule);
+      
+      // Animation de confirmation
+      const statusEl = document.getElementById('status');
+      statusEl.className = 'status success';
+      statusEl.innerHTML = `✅ Formule "${formule}" enregistrée !`;
+      
+      // Mettre à jour l'affichage
+      verifierLocalStorage();
+      
+      // Demander si on veut aller à l'espace membre
+      setTimeout(() => {
+        if (confirm(`✅ Formule "${formule}" enregistrée !\n\nVoulez-vous aller à l'espace membre maintenant ?`)) {
+          window.location.href = 'espace-membre.html';
+        }
+      }, 500);
+    }
+    
+    // Fonction pour effacer le localStorage
+    function effacerLocalStorage() {
+      localStorage.removeItem('plan_acces');
+      verifierLocalStorage();
+      alert('🗑️ localStorage effacé !');
+    }
+    
+    // Vérifier au chargement de la page
+    window.addEventListener('DOMContentLoaded', () => {
+      verifierLocalStorage();
+    });
+  </script>
+</body>
+</html>
