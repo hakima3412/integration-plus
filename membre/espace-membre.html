@@ -294,8 +294,9 @@
         </div>
 
         <!-- Tests de Français -->
-        <h2 style="margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">🇫🇷 Tests de Niveau de Français</h2>
-        <div class="sessions-grid" id="francais-tests">
+        <div id="francais-section">
+            <h2 style="margin: 3rem 0 1.5rem 0; font-size: 1.8rem;">🇫🇷 Tests de Niveau de Français</h2>
+            <div class="sessions-grid" id="francais-tests">
             <div class="session-card test-a2">
                 <h3>Test A2</h3>
                 <p>30 exercices - 45 minutes - 50% requis</p>
@@ -313,6 +314,7 @@
                 <p>40 exercices - 90 minutes - 70% requis</p>
                 <button class="btn-start" onclick="window.location.href='tests/test-b2.html'">Commencer le Test B2</button>
             </div>
+        </div>
         </div>
 
         <!-- Bouton retour -->
@@ -365,7 +367,7 @@
             const testA2 = document.querySelector('.test-a2');
             const testB1 = document.querySelector('.test-b1');
             const testB2 = document.querySelector('.test-b2');
-            const francaisSection = document.getElementById('francais-tests').parentElement;
+            const francaisSection = document.getElementById('francais-section');
             
             // Formule ESSENTIEL : masquer TOUS les tests de français
             if (plan === 'essentiel') {
