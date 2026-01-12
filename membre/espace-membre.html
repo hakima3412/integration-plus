@@ -250,60 +250,60 @@
                 <h3>Session 1</h3>
                 <p>Questions Générales - 35 questions</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
+                    <div class="progress-fill" id="progress-session1" style="width: 0%"></div>
                 </div>
-                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
-                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+                <small style="color: rgba(255,255,255,0.5)" id="status-session1">Progression : 0%</small>
+                <button class="btn-start" onclick="window.location.href='sessions/session1.html'">Démarrer</button>
             </div>
 
             <div class="session-card">
                 <h3>Session 2</h3>
                 <p>Histoire de France - 40 questions</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
+                    <div class="progress-fill" id="progress-session2" style="width: 0%"></div>
                 </div>
-                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
-                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+                <small style="color: rgba(255,255,255,0.5)" id="status-session2">Progression : 0%</small>
+                <button class="btn-start" onclick="window.location.href='sessions/session2.html'">Démarrer</button>
             </div>
 
             <div class="session-card">
                 <h3>Session 3</h3>
                 <p>Valeurs & Symboles - 30 questions</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
+                    <div class="progress-fill" id="progress-session3" style="width: 0%"></div>
                 </div>
-                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
-                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+                <small style="color: rgba(255,255,255,0.5)" id="status-session3">Progression : 0%</small>
+                <button class="btn-start" onclick="window.location.href='sessions/session3.html'">Démarrer</button>
             </div>
 
             <div class="session-card">
                 <h3>Session 4</h3>
                 <p>Institutions - 35 questions</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
+                    <div class="progress-fill" id="progress-session4" style="width: 0%"></div>
                 </div>
-                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
-                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+                <small style="color: rgba(255,255,255,0.5)" id="status-session4">Progression : 0%</small>
+                <button class="btn-start" onclick="window.location.href='sessions/session4.html'">Démarrer</button>
             </div>
 
             <div class="session-card">
                 <h3>Session 5</h3>
                 <p>Droits & Devoirs - 40 questions</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
+                    <div class="progress-fill" id="progress-session5" style="width: 0%"></div>
                 </div>
-                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
-                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Démarrer</button>
+                <small style="color: rgba(255,255,255,0.5)" id="status-session5">Progression : 0%</small>
+                <button class="btn-start" onclick="window.location.href='sessions/session5.html'">Démarrer</button>
             </div>
 
             <div class="session-card">
                 <h3>Simulation Examen</h3>
                 <p>Test complet - 40 questions (45 min)</p>
                 <div class="progress-bar">
-                    <div class="progress-fill" style="width: 0%"></div>
+                    <div class="progress-fill" id="progress-session6" style="width: 0%"></div>
                 </div>
-                <small style="color: rgba(255,255,255,0.5)">Progression : 0%</small>
-                <button class="btn-start" onclick="alert('Session bientôt disponible !')">Lancer</button>
+                <small style="color: rgba(255,255,255,0.5)" id="status-session6">Progression : 0%</small>
+                <button class="btn-start" onclick="window.location.href='sessions/session6.html'">Lancer</button>
             </div>
         </div>
 
@@ -312,20 +312,20 @@
         <div class="sessions-grid">
             <div class="session-card">
                 <h3>Test A2</h3>
-                <p>25 exercices - 60 minutes - 50% requis</p>
-                <button class="btn-start" onclick="alert('Test bientôt disponible !')">Commencer le Test A2</button>
+                <p>30 exercices - 45 minutes - 50% requis</p>
+                <button class="btn-start" onclick="window.location.href='tests/test-a2.html'">Commencer le Test A2</button>
             </div>
 
             <div class="session-card">
                 <h3>Test B1</h3>
-                <p>35 exercices - 90 minutes - 60% requis</p>
-                <button class="btn-start" onclick="alert('Test bientôt disponible !')">Commencer le Test B1</button>
+                <p>35 exercices - 60 minutes - 60% requis</p>
+                <button class="btn-start" onclick="window.location.href='tests/test-b1.html'">Commencer le Test B1</button>
             </div>
 
             <div class="session-card">
                 <h3>Test B2</h3>
-                <p>45 exercices - 120 minutes - 70% requis</p>
-                <button class="btn-start" onclick="alert('Test bientôt disponible !')">Commencer le Test B2</button>
+                <p>40 exercices - 90 minutes - 70% requis</p>
+                <button class="btn-start" onclick="window.location.href='tests/test-b2.html'">Commencer le Test B2</button>
             </div>
         </div>
 
@@ -358,6 +358,9 @@
             const formuleName = formuleNames[plan] || 'Membre';
             document.getElementById('userFormule').textContent = formuleName;
             document.getElementById('formuleBadge').textContent = formuleName;
+            
+            // Charger les progressions
+            loadProgress();
         });
 
         // Fonction de déconnexion
@@ -365,6 +368,46 @@
             if (confirm('Voulez-vous vraiment vous déconnecter ?')) {
                 localStorage.removeItem('plan_acces');
                 window.location.href = 'acces.html';
+            }
+        }
+        
+        // Charger les progressions des sessions
+        function loadProgress() {
+            const progress = JSON.parse(localStorage.getItem('integrationplus_progress') || '{}');
+            
+            let totalCompleted = 0;
+            let totalQuestions = 0;
+            let totalCorrect = 0;
+            
+            // Charger progression pour chaque session
+            for (let i = 1; i <= 6; i++) {
+                const sessionKey = 'session' + i;
+                const sessionData = progress[sessionKey];
+                
+                if (sessionData && sessionData.completed) {
+                    const progressBar = document.getElementById('progress-' + sessionKey);
+                    const statusText = document.getElementById('status-' + sessionKey);
+                    
+                    if (progressBar && statusText) {
+                        progressBar.style.width = sessionData.bestScore + '%';
+                        statusText.textContent = '✅ Complété - Score : ' + sessionData.bestScore + '%';
+                        statusText.style.color = '#4fc4d3';
+                    }
+                    
+                    totalCompleted++;
+                    // Estimation basée sur le score (environ 35-40 questions par session)
+                    const questionCount = 35;
+                    totalQuestions += questionCount;
+                    totalCorrect += Math.round((sessionData.bestScore / 100) * questionCount);
+                }
+            }
+            
+            // Mettre à jour les statistiques globales
+            if (totalCompleted > 0) {
+                const overallProgress = Math.round((totalCompleted / 6) * 100);
+                document.getElementById('statProgression').textContent = overallProgress + '%';
+                document.getElementById('statSessions').textContent = totalCompleted;
+                document.getElementById('statQuestions').textContent = totalCorrect + '/' + totalQuestions;
             }
         }
     </script>
