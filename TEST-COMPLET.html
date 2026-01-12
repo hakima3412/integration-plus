@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST COMPLET - Integration Plus</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        .test-section h2 {
+            color: #4fc4d3;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: auto;
+        }
+        .status.pending {
+            background: #ffc107;
+            color: #000;
+        }
+        .status.success {
+            background: #4caf50;
+            color: white;
+        }
+        .status.error {
+            background: #f44336;
+            color: white;
+        }
+        .test-link {
+            display: inline-block;
+            margin: 10px 10px 10px 0;
+            padding: 12px 25px;
+            background: #4fc4d3;
+            color: #0b1c2d;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .test-link:hover {
+            transform: translateY(-2px);
+            background: #6fd4e3;
+        }
+        .info-box {
+            background: rgba(79, 196, 211, 0.2);
+            border-left: 4px solid #4fc4d3;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .warning-box {
+            background: rgba(255, 193, 7, 0.2);
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .success-box {
+            background: rgba(76, 175, 80, 0.2);
+            border-left: 4px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        ul {
+            margin: 15px 0 15px 25px;
+            line-height: 1.8;
+        }
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .test-result {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        .btn-test {
+            padding: 10px 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-right: 10px;
+        }
+        .btn-test:hover {
+            background: #5568d3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 TEST COMPLET DU SYSTÈME</h1>
+        
+        <div class="warning-box">
+            <strong>⚠️ AVANT DE TESTER</strong>
+            <p>Assurez-vous d'avoir vidé le cache de votre navigateur ou testez en mode incognito !</p>
+            <p><strong>Windows:</strong> Ctrl+Shift+Delete | <strong>Mac:</strong> Cmd+Shift+Delete</p>
+        </div>
+
+        <!-- TEST 1 -->
+        <div class="test-section">
+            <h2>
+                <span>1️⃣ Test de Déploiement</span>
+                <span class="status pending" id="status1">En attente</span>
+            </h2>
+            <p>Vérifier que la page de test se charge correctement.</p>
+            <a href="test-deploy.html" target="_blank" class="test-link">📄 Ouvrir test-deploy.html</a>
+            <div class="info-box">
+                <strong>✅ Résultat attendu :</strong> Une page violette avec "DÉPLOIEMENT RÉUSSI"<br>
+                <strong>❌ Si erreur 404 :</strong> GitHub Pages n'a pas encore déployé (attendez 5-10 min)
+            </div>
+        </div>
+
+        <!-- TEST 2 -->
+        <div class="test-section">
+            <h2>
+                <span>2️⃣ Page de Connexion</span>
+                <span class="status pending" id="status2">En attente</span>
+            </h2>
+            <p>Tester l'accès à la page de connexion membre.</p>
+            <a href="membre/acces.html" target="_blank" class="test-link">🔐 Ouvrir acces.html</a>
+            <div class="info-box">
+                <strong>✅ Résultat attendu :</strong> Page bleue avec champ de saisie et bouton "Accéder"<br>
+                <strong>🔑 Code à tester :</strong> <code>ESS-49-A9F3</code>
+            </div>
+        </div>
+
+        <!-- TEST 3 -->
+        <div class="test-section">
+            <h2>
+                <span>3️⃣ Page Espace Essentiel</span>
+                <span class="status pending" id="status3">En attente</span>
+            </h2>
+            <p>Après avoir entré le code, vous devez arriver ici automatiquement.</p>
+            <a href="membre/espace-essentiel.html" target="_blank" class="test-link">📦 Ouvrir espace-essentiel.html</a>
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANT :</strong> Cette page nécessite d'avoir entré le code d'abord !<br>
+                Si vous l'ouvrez directement, vous serez redirigé vers acces.html
+            </div>
+            <div class="info-box">
+                <strong>✅ Résultat attendu :</strong> 
+                <ul>
+                    <li>Page bleue avec badge "FORMULE ESSENTIEL"</li>
+                    <li>Liste des avantages</li>
+                    <li>Bouton "📚 Accéder aux Tests et Sessions"</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TEST 4 -->
+        <div class="test-section">
+            <h2>
+                <span>4️⃣ Espace Membre Principal</span>
+                <span class="status pending" id="status4">En attente</span>
+            </h2>
+            <p>La page centrale avec tous les tests et sessions.</p>
+            <a href="membre/espace-membre.html" target="_blank" class="test-link">🎓 Ouvrir espace-membre.html</a>
+            <div class="warning-box">
+                <strong>⚠️ IMPORTANT :</strong> Nécessite aussi d'avoir entré un code d'accès !
+            </div>
+            <div class="success-box">
+                <strong>✅ Résultat attendu :</strong> 
+                <ul>
+                    <li>Statistiques (Progression, Sessions, Questions)</li>
+                    <li>6 cartes de sessions de test civique</li>
+                    <li>3 cartes de tests de français</li>
+                    <li>Boutons "Démarrer" sur chaque session</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TEST 5 -->
+        <div class="test-section">
+            <h2>
+                <span>5️⃣ Session 1 (Quiz Civique)</span>
+                <span class="status pending" id="status5">En attente</span>
+            </h2>
+            <p>Test direct d'une session de quiz.</p>
+            <a href="membre/sessions/session1.html" target="_blank" class="test-link">📝 Ouvrir session1.html</a>
+            <div class="success-box">
+                <strong>✅ Résultat attendu :</strong> 
+                <ul>
+                    <li>Page "Session 1 - Questions Générales"</li>
+                    <li>35 Questions affichées</li>
+                    <li>Bouton "Commencer la Session"</li>
+                    <li><strong>PAS de popup "bientôt disponible"</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- TEST 6 -->
+        <div class="test-section">
+            <h2>
+                <span>6️⃣ Test de Français A2</span>
+                <span class="status pending" id="status6">En attente</span>
+            </h2>
+            <p>Test direct d'un test de français.</p>
+            <a href="membre/tests/test-a2.html" target="_blank" class="test-link">🇫🇷 Ouvrir test-a2.html</a>
+            <div class="success-box">
+                <strong>✅ Résultat attendu :</strong> 
+                <ul>
+                    <li>Page "Test de Français A2"</li>
+                    <li>Badge "Niveau A2"</li>
+                    <li>30 exercices mentionnés</li>
+                    <li>Bouton "Commencer le Test"</li>
+                    <li><strong>CSS chargé correctement (design visible)</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- RÉSUMÉ FINAL -->
+        <div class="test-section" style="background: rgba(76, 175, 80, 0.2); border-color: #4caf50;">
+            <h2>
+                <span>✅ CHECKLIST FINALE</span>
+            </h2>
+            <p style="font-size: 1.1em; margin-bottom: 15px;">Cochez mentalement chaque point :</p>
+            <ul style="list-style: none; padding-left: 0;">
+                <li>☑️ La page test-deploy.html s'affiche en violet</li>
+                <li>☑️ La page acces.html permet d'entrer un code</li>
+                <li>☑️ Le code ESS-49-A9F3 fonctionne</li>
+                <li>☑️ espace-essentiel.html affiche le bouton "Accéder aux Tests"</li>
+                <li>☑️ espace-membre.html affiche 6 sessions + 3 tests</li>
+                <li>☑️ Les boutons "Démarrer" ne sont PAS des alertes</li>
+                <li>☑️ session1.html se charge avec les questions</li>
+                <li>☑️ test-a2.html se charge avec le design CSS</li>
+            </ul>
+        </div>
+
+        <div class="info-box" style="margin-top: 30px; font-size: 1.1em;">
+            <strong>💡 ASTUCE :</strong> Ouvrez chaque lien dans un nouvel onglet (clic droit → "Ouvrir dans un nouvel onglet") pour garder cette page de test ouverte.
+        </div>
+
+        <div class="success-box" style="margin-top: 20px;">
+            <strong>🎉 SI TOUS LES TESTS PASSENT :</strong><br>
+            Votre site fonctionne à 100% ! Vous pouvez donner les codes à vos clients en toute confiance.
+        </div>
+    </div>
+
+    <script>
+        // Petit script pour améliorer l'expérience
+        console.log("✅ Page de test chargée");
+        console.log("📝 Ouvrez chaque lien pour tester le système");
+        console.log("🔍 Vérifiez que tout correspond aux résultats attendus");
+    </script>
+</body>
+</html>
