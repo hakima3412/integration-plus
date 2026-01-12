@@ -362,19 +362,35 @@
         
         // Filtrer les tests selon la formule
         function filterTestsByFormule(plan) {
+            const testA2 = document.querySelector('.test-a2');
+            const testB1 = document.querySelector('.test-b1');
             const testB2 = document.querySelector('.test-b2');
+            const francaisSection = document.getElementById('francais-tests').parentElement;
             
-            // Formule ESSENTIEL : masquer le Test B2
+            // Formule ESSENTIEL : masquer TOUS les tests de français
             if (plan === 'essentiel') {
-                if (testB2) {
-                    testB2.style.display = 'none';
+                if (francaisSection) {
+                    // Cacher toute la section Tests de Français
+                    francaisSection.style.display = 'none';
                 }
             }
-            // Formules PREMIUM et EXCELLENCE : afficher tous les tests
-            else {
-                if (testB2) {
-                    testB2.style.display = 'block';
+            // Formule PREMIUM : afficher A2 et B1, masquer B2
+            else if (plan === 'premium') {
+                if (francaisSection) {
+                    francaisSection.style.display = 'block';
                 }
+                if (testA2) testA2.style.display = 'block';
+                if (testB1) testB1.style.display = 'block';
+                if (testB2) testB2.style.display = 'none';
+            }
+            // Formule EXCELLENCE : afficher tous les tests
+            else if (plan === 'excellence') {
+                if (francaisSection) {
+                    francaisSection.style.display = 'block';
+                }
+                if (testA2) testA2.style.display = 'block';
+                if (testB1) testB1.style.display = 'block';
+                if (testB2) testB2.style.display = 'block';
             }
         }
         
