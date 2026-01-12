@@ -2,18 +2,102 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espace Essentiel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0b1c2d 0%, #1a3a52 100%);
+      color: #fff;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #112a47;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.4);
+    }
+    h1 {
+      color: #4fc4d3;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+    .badge {
+      display: inline-block;
+      background: #4fc4d3;
+      color: #0b1c2d;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .content {
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    .logout {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: #dc3545;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .logout:hover {
+      background: #c82333;
+    }
+  </style>
   <script>
-  const plan = localStorage.getItem("plan_acces");
-  if (plan !== "essentiel") {
-    window.location.href = "acces.html";
-  }
-</script>
+    const plan = localStorage.getItem("plan_acces");
+    if (plan !== "essentiel") {
+      window.location.href = "acces.html";
+    }
+    
+    function deconnexion() {
+      localStorage.removeItem("plan_acces");
+      window.location.href = "acces.html";
+    }
+  </script>
 </head>
 <body>
-
-  <h1>Bienvenue dans l’espace ESSENTIEL</h1>
-  <p>Contenu réservé à la formule Essentiel.</p>
-
+  <div class="container">
+    <div style="text-align: center;">
+      <span class="badge">📦 FORMULE ESSENTIEL</span>
+    </div>
+    
+    <h1>✅ Bienvenue dans votre Espace Membre</h1>
+    
+    <div class="content">
+      <p>🎉 Félicitations ! Vous avez accès à la <strong>formule Essentiel</strong>.</p>
+      
+      <h3>🔓 Vos accès :</h3>
+      <ul>
+        <li>✅ Tous les documents PDF</li>
+        <li>✅ Checklists complètes</li>
+        <li>✅ Guide des institutions</li>
+        <li>✅ Support par email</li>
+      </ul>
+      
+      <p style="margin-top: 30px;">
+        <a href="../index.html" style="color: #4fc4d3; text-decoration: none; font-weight: bold;">
+          🏠 Retour à l'accueil
+        </a>
+      </p>
+      
+      <div style="text-align: center;">
+        <a href="#" class="logout" onclick="deconnexion(); return false;">
+          🚪 Se déconnecter
+        </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

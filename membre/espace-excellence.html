@@ -2,17 +2,106 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Espace Excellence</title>
-
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a0000 0%, #660000 100%);
+      color: #fff;
+      min-height: 100vh;
+      margin: 0;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #4a1a1a;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.4);
+      border: 2px solid #ff6b6b;
+    }
+    h1 {
+      color: #ff6b6b;
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+    .badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #ff6b6b, #ffd700);
+      color: #1a0000;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .content {
+      line-height: 1.8;
+      font-size: 1.1em;
+    }
+    .logout {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: #dc3545;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .logout:hover {
+      background: #c82333;
+    }
+  </style>
   <script>
-    if (localStorage.getItem("formule") !== "excellence") {
+    const plan = localStorage.getItem("plan_acces");
+    if (plan !== "excellence") {
+      window.location.href = "acces.html";
+    }
+    
+    function deconnexion() {
+      localStorage.removeItem("plan_acces");
       window.location.href = "acces.html";
     }
   </script>
 </head>
-
 <body>
-  <h1>Bienvenue dans l’espace EXCELLENCE</h1>
-  <p>Contenu réservé à la formule Excellence.</p>
+  <div class="container">
+    <div style="text-align: center;">
+      <span class="badge">👑 FORMULE EXCELLENCE</span>
+    </div>
+    
+    <h1>🏆 Bienvenue dans votre Espace Excellence</h1>
+    
+    <div class="content">
+      <p>🎉 Félicitations ! Vous avez accès à la <strong>formule Excellence</strong> - Notre offre la plus complète !</p>
+      
+      <h3>🔓 Vos accès VIP :</h3>
+      <ul>
+        <li>✅ Tous les avantages Premium</li>
+        <li>👑 Accompagnement personnalisé illimité</li>
+        <li>👑 Accès à tous les ateliers en direct</li>
+        <li>👑 Simulations d'entretien individuelles</li>
+        <li>👑 Kit complet de préparation avancée</li>
+        <li>👑 Support 24/7 prioritaire</li>
+        <li>👑 Garantie de réussite</li>
+      </ul>
+      
+      <p style="margin-top: 30px;">
+        <a href="../index.html" style="color: #ff6b6b; text-decoration: none; font-weight: bold;">
+          🏠 Retour à l'accueil
+        </a>
+      </p>
+      
+      <div style="text-align: center;">
+        <a href="#" class="logout" onclick="deconnexion(); return false;">
+          🚪 Se déconnecter
+        </a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
