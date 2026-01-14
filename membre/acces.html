@@ -97,22 +97,26 @@
     let plan = CODES_CLAIRS[code];
     
     // ✅ Vérifier les codes générés automatiquement (depuis confirmation.html)
+    // IMPORTANT: On vérifie que le code existe EXACTEMENT dans la base
     if (!plan) {
       const validCodes = JSON.parse(localStorage.getItem('valid_codes') || '{}');
       if (validCodes[code]) {
-        plan = validCodes[code].formule;
+        // Vérifier que le préfixe correspond à la formule enregistrée
+        const expectedPrefix = validCodes[code].prefix;
+        if (code.startsWith(expectedPrefix + '-')) {
+          plan = validCodes[code].formule;
+        } else {
+          alert("Code invalide. Ne modifiez pas votre code d'accès.");
+          return;
+        }
       }
     }
 
-    // ✅ Vérifier les codes générés avec format ESS-2026-XXXXXX
-    if (!plan && code.match(/^(ESS|PRE|EXC)-\d{4}-[A-Z0-9]{6}$/)) {
-      if (code.startsWith('ESS-')) plan = 'essentiel';
-      if (code.startsWith('PRE-')) plan = 'premium';
-      if (code.startsWith('EXC-')) plan = 'excellence';
-    }
+    // ❌ SUPPRIMÉ: On n'accepte PLUS les codes juste sur le format
+    // Les codes doivent être enregistrés dans valid_codes
 
     if (!plan) {
-      alert("Code invalide. Vérifiez votre code ou contactez le support.");
+      alert("Code invalide. Vérifiez votre code ou contactez le support.\n\nSi vous venez d'acheter, utilisez le code qui vous a été fourni sur la page de confirmation.");
       return;
     }
 
