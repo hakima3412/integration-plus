@@ -104,6 +104,22 @@
         // Vérifier que le préfixe correspond à la formule enregistrée
         const expectedPrefix = validCodes[code].prefix;
         if (code.startsWith(expectedPrefix + '-')) {
+          // ⏰ VÉRIFIER LA DATE D'EXPIRATION
+          const dateExpiration = new Date(validCodes[code].dateExpiration);
+          const maintenant = new Date();
+          
+          if (maintenant > dateExpiration) {
+            // ❌ Code expiré
+            const dateExpirationFormatee = dateExpiration.toLocaleDateString('fr-FR', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric'
+            });
+            alert(`⏰ Code expiré\n\nCe code a expiré le ${dateExpirationFormatee}.\n\nPour renouveler votre accès, contactez-nous :\ncontact@integrationplus.eu`);
+            return;
+          }
+          
+          // ✅ Code valide et non expiré
           plan = validCodes[code].formule;
         } else {
           alert("Code invalide. Ne modifiez pas votre code d'accès.");

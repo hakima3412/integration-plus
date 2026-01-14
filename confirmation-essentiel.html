@@ -296,11 +296,23 @@
                 code = generateUniqueCode(config.prefix);
                 sessionStorage.setItem(storageKey, code);
                 
+                // ✅ Calculer la date d'expiration selon la formule
+                const dateCreation = new Date();
+                const dateExpiration = new Date(dateCreation);
+                
+                // ⏰ Validité : 1 an pour Essentiel, 2 ans pour Premium et Excellence
+                if (formule === 'essentiel') {
+                    dateExpiration.setFullYear(dateExpiration.getFullYear() + 1); // +1 an
+                } else {
+                    dateExpiration.setFullYear(dateExpiration.getFullYear() + 2); // +2 ans
+                }
+                
                 // Sauvegarder aussi dans la liste des codes valides
                 let validCodes = JSON.parse(localStorage.getItem('valid_codes') || '{}');
                 validCodes[code] = {
                     formule: formule,
-                    date: new Date().toISOString(),
+                    dateCreation: dateCreation.toISOString(),
+                    dateExpiration: dateExpiration.toISOString(),
                     prefix: config.prefix
                 };
                 localStorage.setItem('valid_codes', JSON.stringify(validCodes));
@@ -313,8 +325,22 @@
         const config = formules[formule] || formules['essentiel'];
         const uniqueCode = getOrCreateCode(formule);
 
+        // Calculer la date d'expiration pour l'affichage
+        const dateExpiration = new Date();
+        if (formule === 'essentiel') {
+            dateExpiration.setFullYear(dateExpiration.getFullYear() + 1);
+        } else {
+            dateExpiration.setFullYear(dateExpiration.getFullYear() + 2);
+        }
+        const dateExpirationFormatee = dateExpiration.toLocaleDateString('fr-FR', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+
         document.getElementById('formuleInfo').innerHTML = `
-            <i class="fas fa-star"></i> ${config.nom} - ${config.prix} - Validité ${config.validite}
+            <i class="fas fa-star"></i> ${config.nom} - ${config.prix}<br>
+            <small style="font-size: 14px;">Valide jusqu'au ${dateExpirationFormatee}</small>
         `;
         document.getElementById('codeDisplay').textContent = uniqueCode;
 
