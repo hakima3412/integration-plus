@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation d'achat - Integration+</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .confirmation-box {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 40px;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .code-section {
+            background: #f3f4f6;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .code-label {
+            color: #6b7280;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .code-display {
+            background: white;
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .copy-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .copy-button.copied {
+            background: #10b981;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #92400e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions ol {
+            color: #78350f;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .access-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .access-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .formule-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .support-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .support-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .confirmation-box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .code-display {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box">
+        <div class="success-icon">
+            <i class="fas fa-check"></i>
+        </div>
+
+        <h1>Paiement confirmé ! 🎉</h1>
+        <p class="subtitle">Merci pour votre achat</p>
+
+        <div class="formule-info" id="formuleInfo">
+            <i class="fas fa-star"></i> Formule Essentiel
+        </div>
+
+        <div class="code-section">
+            <div class="code-label">Votre code d'accès personnel</div>
+            <div class="code-display" id="codeDisplay">ESS-2026-XXXXX</div>
+            <button class="copy-button" id="copyButton">
+                <i class="fas fa-copy"></i> Copier le code
+            </button>
+        </div>
+
+        <div class="instructions">
+            <h3><i class="fas fa-info-circle"></i> Comment accéder à votre espace</h3>
+            <ol>
+                <li>Cliquez sur le bouton "Accéder à mon espace" ci-dessous</li>
+                <li>Entrez votre code d'accès (ou collez-le avec Ctrl+V)</li>
+                <li>Cliquez sur "Accéder"</li>
+                <li>Vous êtes dans votre espace membre ! 🎯</li>
+            </ol>
+        </div>
+
+        <a href="membre/acces.html" class="access-button">
+            <i class="fas fa-arrow-right"></i> Accéder à mon espace
+        </a>
+
+        <div class="support-info">
+            <p><strong>Besoin d'aide ?</strong></p>
+            <p>Contactez-nous : <a href="mailto:contact@integrationplus.eu">contact@integrationplus.eu</a></p>
+            <p style="margin-top: 10px; font-size: 12px;">
+                <i class="fas fa-shield-alt"></i> Votre code est personnel et confidentiel
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Cette page est pour la formule PREMIUM uniquement
+        const formule = 'premium';
+        
+        // Configuration des formules
+        const formules = {
+            'essentiel': {
+                nom: 'Formule Essentiel',
+                prix: '49€',
+                prefix: 'ESS'
+            },
+            'premium': {
+                nom: 'Formule Premium',
+                prix: '79€',
+                prefix: 'PRE'
+            },
+            'excellence': {
+                nom: 'Formule Excellence',
+                prix: '149€',
+                prefix: 'EXC'
+            }
+        };
+
+        // Générer un code unique
+        function generateUniqueCode(prefix) {
+            const year = new Date().getFullYear();
+            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+            let randomCode = '';
+            for (let i = 0; i < 6; i++) {
+                randomCode += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return `${prefix}-${year}-${randomCode}`;
+        }
+
+        // Sauvegarder le code dans localStorage pour qu'il persiste
+        function getOrCreateCode(formule) {
+            const storageKey = `code_${formule}_${Date.now()}`;
+            let code = sessionStorage.getItem(storageKey);
+            
+            if (!code) {
+                const config = formules[formule] || formules['essentiel'];
+                code = generateUniqueCode(config.prefix);
+                sessionStorage.setItem(storageKey, code);
+                
+                // Sauvegarder aussi dans la liste des codes valides
+                let validCodes = JSON.parse(localStorage.getItem('valid_codes') || '{}');
+                validCodes[code] = {
+                    formule: formule,
+                    date: new Date().toISOString(),
+                    prefix: config.prefix
+                };
+                localStorage.setItem('valid_codes', JSON.stringify(validCodes));
+            }
+            
+            return code;
+        }
+
+        // Afficher les informations
+        const config = formules[formule] || formules['essentiel'];
+        const uniqueCode = getOrCreateCode(formule);
+
+        document.getElementById('formuleInfo').innerHTML = `
+            <i class="fas fa-star"></i> ${config.nom} - ${config.prix}
+        `;
+        document.getElementById('codeDisplay').textContent = uniqueCode;
+
+        // Fonction de copie
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const code = document.getElementById('codeDisplay').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const button = this;
+                button.classList.add('copied');
+                button.innerHTML = '<i class="fas fa-check"></i> Code copié !';
+                
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.innerHTML = '<i class="fas fa-copy"></i> Copier le code';
+                }, 2000);
+            });
+        });
+    </script>
+</body>
+</html>
