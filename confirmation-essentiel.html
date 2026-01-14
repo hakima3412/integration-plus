@@ -258,17 +258,20 @@
             'essentiel': {
                 nom: 'Formule Essentiel',
                 prix: '49€',
-                prefix: 'ESS'
+                prefix: 'ESS',
+                validite: '1 an'
             },
             'premium': {
                 nom: 'Formule Premium',
                 prix: '79€',
-                prefix: 'PRE'
+                prefix: 'PRE',
+                validite: '2 ans'
             },
             'excellence': {
                 nom: 'Formule Excellence',
                 prix: '149€',
-                prefix: 'EXC'
+                prefix: 'EXC',
+                validite: '2 ans'
             }
         };
 
@@ -311,7 +314,7 @@
         const uniqueCode = getOrCreateCode(formule);
 
         document.getElementById('formuleInfo').innerHTML = `
-            <i class="fas fa-star"></i> ${config.nom} - ${config.prix}
+            <i class="fas fa-star"></i> ${config.nom} - ${config.prix} - Validité ${config.validite}
         `;
         document.getElementById('codeDisplay').textContent = uniqueCode;
 
