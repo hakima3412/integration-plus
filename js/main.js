@@ -613,7 +613,7 @@ function getChatbotResponse(message) {
     <ul>
         <li>🔍 Explorer notre Espace Membre avec 200+ questions</li>
         <li>📧 Contacter notre équipe : contact@integrationplus.eu</li>
-        <li>📞 Appeler le +33 1 23 45 67 89</li>
+        <li>📞 Appeler le 06 15 28 23 62</li>
     </ul>
     Vous pouvez aussi essayer notre version DÉMO gratuite ! 🎉`;
 }

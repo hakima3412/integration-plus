@@ -501,5 +501,5 @@ function getChatbotResponse(message) {
         return `Pour la naturalisation, vous devez justifier d'un niveau B1 en français :<ul><li>📝 B1 = Niveau intermédiaire (requis pour naturalisation)</li><li>📝 A2 = Niveau élémentaire (requis pour carte de résident)</li><li>📝 B2 = Niveau avancé (recommandé pour certains emplois)</li></ul>Notre plateforme propose des tests de préparation pour les 3 niveaux ! 📖`;
     }
     
-    return `Merci pour votre question ! Pour des informations détaillées :<ul><li>🔍 Explorez votre Espace Membre avec 200+ questions</li><li>📧 Contactez notre équipe : contact@integrationplus.eu</li><li>📞 Appelez le +33 1 23 45 67 89</li></ul>`;
+    return `Merci pour votre question ! Pour des informations détaillées :<ul><li>🔍 Explorez votre Espace Membre avec 200+ questions</li><li>📧 Contactez notre équipe : contact@integrationplus.eu</li><li>📞 Appelez le 06 15 28 23 62</li></ul>`;
 }
