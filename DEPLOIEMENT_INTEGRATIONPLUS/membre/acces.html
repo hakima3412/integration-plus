@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accès membre - Integration+</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color:#fff;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      margin:0;
+      padding: 20px;
+    }
+    .box{
+      background:#fff;
+      padding:40px;
+      border-radius:20px;
+      width:100%;
+      max-width:400px;
+      text-align:center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      color: #333;
+    }
+    .logo {
+      font-size: 48px;
+      color: #667eea;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #1f2937;
+      margin-bottom: 30px;
+      font-size: 24px;
+    }
+    input{
+      width:100%;
+      padding:15px;
+      margin-top:15px;
+      border-radius:10px;
+      border:2px solid #e5e7eb;
+      outline:none;
+      font-size: 16px;
+      transition: border-color 0.3s;
+    }
+    input:focus {
+      border-color: #667eea;
+    }
+    button{
+      width:100%;
+      padding:15px;
+      margin-top:20px;
+      border-radius:10px;
+      border:none;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      font-weight:bold;
+      font-size: 16px;
+      cursor:pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .error-message {
+      background: #fee2e2;
+      color: #dc2626;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 15px;
+      font-size: 14px;
+      display: none;
+    }
+    .info-text {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #6b7280;
+    }
+    .info-text a {
+      color: #667eea;
+      text-decoration: none;
+    }
+    .spinner {
+      border: 3px solid #f3f4f6;
+      border-top: 3px solid #667eea;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+      display: inline-block;
+      margin-right: 10px;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="logo">
+      <i class="fas fa-graduation-cap"></i>
+    </div>
+    <h2>Accès Espace Membre</h2>
+
+    <input
+      type="text"
+      id="code"
+      placeholder="Entrez votre code d'accès"
+      autocomplete="off"
+    />
+
+    <div class="error-message" id="errorMessage"></div>
+
+    <button id="btn-acceder" type="button" onclick="verifierCode()">
+      <span id="buttonText">Accéder</span>
+    </button>
+
+    <div class="info-text">
+      <p>Vous n'avez pas de code ?</p>
+      <p><a href="https://integrationplus.eu/#tarifs">Voir les formules</a></p>
+      <p style="margin-top: 15px; font-size: 12px;">
+        <i class="fas fa-question-circle"></i> 
+        <a href="mailto:plumeprestige@outlook.fr">Besoin d'aide ?</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const BACKEND_URL = 'https://expert-web-tuner.preview.emergentagent.com/api';
+    
+    // Code admin master (accès à toutes les formules)
+    const CODE_ADMIN = "ADMIN-2026-MASTER";
+
+    function showError(message) {
+      const errorDiv = document.getElementById('errorMessage');
+      errorDiv.textContent = message;
+      errorDiv.style.display = 'block';
+      setTimeout(() => {
+        errorDiv.style.display = 'none';
+      }, 5000);
+    }
+
+    function setLoading(loading) {
+      const button = document.getElementById('btn-acceder');
+      const buttonText = document.getElementById('buttonText');
+      
+      if (loading) {
+        button.disabled = true;
+        buttonText.innerHTML = '<span class="spinner"></span> Vérification...';
+      } else {
+        button.disabled = false;
+        buttonText.textContent = 'Accéder';
+      }
+    }
+
+    async function verifierCode() {
+      const input = document.getElementById("code");
+      const code = (input?.value || "").trim().toUpperCase();
+
+      if (!code) {
+        showError("Merci de saisir un code");
+        return;
+      }
+
+      setLoading(true);
+
+      try {
+        // Vérifier si c'est le code admin
+        if (code === CODE_ADMIN) {
+          localStorage.setItem("plan_acces", "excellence");
+          localStorage.setItem("is_admin", "true");
+          window.location.href = "https://integrationplus.eu/membre/espace-excellence.html";
+          return;
+        }
+
+        // Appeler l'API backend pour vérifier le code
+        const response = await fetch(`${BACKEND_URL}/verify-code`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ code: code })
+        });
+
+        if (!response.ok) {
+          throw new Error('Erreur de connexion au serveur');
+        }
+
+        const data = await response.json();
+
+        if (!data.valid) {
+          showError(data.message || 'Code invalide');
+          setLoading(false);
+          return;
+        }
+
+        // Code valide - sauvegarder et rediriger
+        localStorage.setItem("plan_acces", data.formule);
+        if (data.is_admin) {
+          localStorage.setItem("is_admin", "true");
+        }
+
+        // Rediriger selon la formule
+        const redirectUrls = {
+          'essentiel': 'https://integrationplus.eu/membre/espace-essentiel.html',
+          'premium': 'https://integrationplus.eu/membre/espace-premium.html',
+          'excellence': 'https://integrationplus.eu/membre/espace-excellence.html'
+        };
+
+        const redirectUrl = redirectUrls[data.formule] || redirectUrls['essentiel'];
+        window.location.href = redirectUrl;
+
+      } catch (error) {
+        console.error('Erreur:', error);
+        showError('Erreur de connexion. Veuillez réessayer.');
+        setLoading(false);
+      }
+    }
+
+    // Entrée = valider + clic bouton
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.getElementById("code");
+      const btn = document.getElementById("btn-acceder");
+
+      if (input) {
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") verifierCode();
+        });
+        input.focus();
+      }
+
+      if (btn) {
+        btn.addEventListener("click", verifierCode);
+      }
+    });
+  </script>
+</body>
+</html>
