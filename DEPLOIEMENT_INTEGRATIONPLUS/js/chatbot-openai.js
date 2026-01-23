@@ -30,8 +30,8 @@ Tu dois répondre aux questions sur :
 - Les conditions de résidence
 
 INFORMATIONS OFFICIELLES IMPORTANTES :
-⚠️ NIVEAU DE FRANÇAIS POUR NATURALISATION :
-- Le gouvernement français RECOMMANDE le niveau B2 depuis 2024
+⚠️ NIVEAU DE FRANÇAIS POUR NATURALISATION (2026) :
+- Le gouvernement français RECOMMANDE le niveau B2 en 2026
 - Le niveau B1 est le MINIMUM accepté dans certaines situations
 - Pour la carte de résident : niveau A2 minimum
 - Sources : service-public.fr, interieur.gouv.fr
