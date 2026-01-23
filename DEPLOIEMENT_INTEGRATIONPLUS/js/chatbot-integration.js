@@ -138,7 +138,7 @@ function getChatbotResponseSimple(message) {
             <li>📄 Bulletins de salaire et avis d'imposition</li>
             <li>📄 Carte de séjour en cours de validité</li>
         </ul>
-        <p>⚠️ <strong>Note</strong> : Le niveau B2 en français est fortement recommandé depuis 2024 (B1 minimum accepté)</p>
+        <p>⚠️ <strong>Note</strong> : Le niveau B2 en français est fortement recommandé en 2026 (B1 minimum accepté)</p>
         <p>🔗 Liste complète : <a href="https://www.service-public.fr/particuliers/vosdroits/F2213" target="_blank">service-public.fr</a></p>
         <p>💡 Notre formule Excellence vous accompagne dans la préparation de votre dossier !</p>`;
     }
