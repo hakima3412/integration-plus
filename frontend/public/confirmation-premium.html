@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation - Formule Premium - Integration+</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .confirmation-box {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: #10b981;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .success-icon i {
+            color: white;
+            font-size: 40px;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        h1 {
+            color: #1f2937;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .code-section {
+            background: #f3f4f6;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .code-label {
+            color: #6b7280;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .code-display {
+            background: white;
+            border: 3px dashed #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #667eea;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .copy-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .copy-button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        .copy-button.copied {
+            background: #10b981;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .instructions h3 {
+            color: #92400e;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .instructions ol {
+            color: #78350f;
+            padding-left: 20px;
+        }
+
+        .instructions li {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+
+        .access-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s;
+        }
+
+        .access-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .formule-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .support-info {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .support-info a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 50px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .email-notice {
+            background: #dbeafe;
+            border: 2px solid #3b82f6;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .email-notice i {
+            color: #3b82f6;
+            font-size: 24px;
+        }
+
+        @media (max-width: 600px) {
+            .confirmation-box {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .code-display {
+                font-size: 20px;
+                letter-spacing: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-box" id="confirmationBox">
+        <div class="loading" id="loadingState">
+            <div class="spinner"></div>
+            <p>Génération de votre code d'accès...</p>
+        </div>
+
+        <div id="successState" style="display: none;">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+
+            <h1>Paiement confirmé ! 🎉</h1>
+            <p class="subtitle">Merci pour votre achat</p>
+
+            <div class="formule-info">
+                <i class="fas fa-star"></i> Formule Premium - 79€<br>
+                <small>Valide jusqu'au <span id="dateExpiration"></span></small>
+            </div>
+
+            <div class="email-notice">
+                <i class="fas fa-envelope"></i>
+                <p style="margin-top: 10px;"><strong>✉️ Email de confirmation envoyé !</strong></p>
+                <p style="font-size: 14px; margin-top: 5px;">Vérifiez votre boîte mail (et spam) pour recevoir votre code.</p>
+            </div>
+
+            <div class="code-section">
+                <div class="code-label">Votre code d'accès personnel</div>
+                <div class="code-display" id="codeDisplay">---</div>
+                <button class="copy-button" id="copyButton">
+                    <i class="fas fa-copy"></i> Copier le code
+                </button>
+            </div>
+
+            <div class="instructions">
+                <h3><i class="fas fa-info-circle"></i> Comment accéder à votre espace</h3>
+                <ol>
+                    <li>Cliquez sur le bouton "Accéder à mon espace" ci-dessous</li>
+                    <li>Entrez votre code d'accès (ou collez-le avec Ctrl+V)</li>
+                    <li>Cliquez sur "Accéder"</li>
+                    <li>Vous êtes dans votre espace membre ! 🎯</li>
+                </ol>
+            </div>
+
+            <a href="https://integrationplus.eu/membre/acces.html" class="access-button">
+                <i class="fas fa-arrow-right"></i> Accéder à mon espace
+            </a>
+
+            <div class="support-info">
+                <p><strong>Besoin d'aide ?</strong></p>
+                <p>Contactez-nous : <a href="mailto:plumeprestige@outlook.fr">plumeprestige@outlook.fr</a></p>
+                <p style="margin-top: 10px; font-size: 12px;">
+                    <i class="fas fa-shield-alt"></i> Votre code est personnel et confidentiel
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration
+        const BACKEND_URL = 'https://expert-web-tuner.preview.emergentagent.com/api';
+        const FORMULE = 'premium';
+
+        async function generateCode() {
+            try {
+                // Récupérer l'email depuis l'URL (envoyé par PayPal)
+                const urlParams = new URLSearchParams(window.location.search);
+                let payerEmail = urlParams.get('payer_email') || urlParams.get('email');
+
+                // Si pas d'email dans l'URL, demander à l'utilisateur
+                if (!payerEmail) {
+                    payerEmail = prompt('Pour recevoir votre code par email, veuillez entrer votre adresse email:');
+                    if (!payerEmail) {
+                        alert('Email requis pour générer votre code.');
+                        return;
+                    }
+                }
+
+                // Appeler l'API backend
+                const response = await fetch(`${BACKEND_URL}/generate-code`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: payerEmail,
+                        formule: FORMULE
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error('Erreur lors de la génération du code');
+                }
+
+                const data = await response.json();
+
+                // Afficher le code
+                document.getElementById('codeDisplay').textContent = data.code;
+                
+                // Formater la date d'expiration
+                const dateExp = new Date(data.date_expiration);
+                document.getElementById('dateExpiration').textContent = dateExp.toLocaleDateString('fr-FR', {
+                    day: 'numeric',
+                    month: 'long',
+                    year: 'numeric'
+                });
+
+                // Cacher le loading, afficher le succès
+                document.getElementById('loadingState').style.display = 'none';
+                document.getElementById('successState').style.display = 'block';
+
+            } catch (error) {
+                console.error('Erreur:', error);
+                document.getElementById('loadingState').innerHTML = `
+                    <div style="color: #ef4444;">
+                        <i class="fas fa-exclamation-triangle" style="font-size: 48px; margin-bottom: 20px;"></i>
+                        <p><strong>Erreur lors de la génération du code</strong></p>
+                        <p style="margin-top: 10px;">Contactez-nous à: plumeprestige@outlook.fr</p>
+                        <p style="margin-top: 5px; font-size: 14px;">Nous vous enverrons votre code manuellement.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Fonction de copie
+        document.getElementById('copyButton').addEventListener('click', function() {
+            const code = document.getElementById('codeDisplay').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const button = this;
+                button.classList.add('copied');
+                button.innerHTML = '<i class="fas fa-check"></i> Code copié !';
+                
+                setTimeout(() => {
+                    button.classList.remove('copied');
+                    button.innerHTML = '<i class="fas fa-copy"></i> Copier le code';
+                }, 2000);
+            });
+        });
+
+        // Générer le code au chargement de la page
+        window.addEventListener('DOMContentLoaded', generateCode);
+    </script>
+</body>
+</html>
