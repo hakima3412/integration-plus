@@ -99,7 +99,7 @@ function getChatbotResponseSimple(message) {
             <li>✅ Avoir des revenus stables</li>
             <li>✅ Ne pas avoir de condamnations pénales</li>
         </ul>
-        <p>⚠️ Important : Depuis 2024, le niveau B2 est recommandé (B1 minimum accepté selon les situations)</p>
+        <p>⚠️ Important : En 2026, le niveau B2 est fortement recommandé (B1 minimum accepté selon les situations)</p>
         <p>🔗 Plus d'infos : <a href="https://www.service-public.fr/particuliers/vosdroits/F2213" target="_blank">service-public.fr</a></p>
         <p>Notre plateforme vous prépare au test civique avec 200+ questions ! 🎓</p>`;
     }
