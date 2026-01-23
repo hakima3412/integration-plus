@@ -119,7 +119,7 @@ function getChatbotResponseSimple(message) {
     if (lowerMessage.includes('niveau') || lowerMessage.includes('français') || lowerMessage.includes('b1') || lowerMessage.includes('a2') || lowerMessage.includes('b2')) {
         return `Pour la naturalisation française, voici les niveaux de français requis :
         <ul>
-            <li>📝 <strong>B2 = Niveau avancé (RECOMMANDÉ pour naturalisation depuis 2024)</strong></li>
+            <li>📝 <strong>B2 = Niveau avancé (RECOMMANDÉ pour naturalisation en 2026)</strong></li>
             <li>📝 B1 = Niveau intermédiaire (minimum accepté selon situations)</li>
             <li>📝 A2 = Niveau élémentaire (requis pour carte de résident)</li>
         </ul>
