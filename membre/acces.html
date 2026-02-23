@@ -1,166 +1,118 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Accès membre - Integration+</title>
-
-  <style>
-    body{
-      font-family: Arial, sans-serif;
-      background:#0b1c2d;
-      color:#fff;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      height:100vh;
-      margin:0;
-    }
-    .box{
-      background:#112a47;
-      padding:30px;
-      border-radius:12px;
-      width:320px;
-      text-align:center;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    input{
-      width:100%;
-      padding:12px;
-      margin-top:12px;
-      border-radius:8px;
-      border:none;
-      outline:none;
-    }
-    button{
-      width:100%;
-      padding:12px;
-      margin-top:12px;
-      border-radius:8px;
-      border:none;
-      background:#4fc4d3;
-      font-weight:bold;
-      cursor:pointer;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accès Espace Membre - Integration Plus</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #1a2332 0%, #2d3e5f 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+        .login-container { width: 100%; max-width: 450px; background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(10px); border-radius: 24px; padding: 3rem 2rem; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .logo { text-align: center; margin-bottom: 2rem; }
+        .logo-icon { font-size: 4rem; margin-bottom: 1rem; }
+        h1 { color: #ffffff; text-align: center; font-size: 1.8rem; margin-bottom: 0.5rem; font-weight: 600; }
+        .subtitle { color: rgba(255, 255, 255, 0.6); text-align: center; margin-bottom: 2rem; font-size: 0.95rem; }
+        .demo-codes { background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); padding: 1rem; border-radius: 12px; margin-bottom: 1.5rem; }
+        .demo-codes h3 { color: #00d4ff; font-size: 0.9rem; margin-bottom: 0.75rem; text-align: center; }
+        .demo-code-item { background: rgba(255, 255, 255, 0.05); padding: 0.75rem; border-radius: 8px; margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: all 0.3s; }
+        .demo-code-item:hover { background: rgba(255, 255, 255, 0.1); transform: translateX(5px); }
+        .code-text { font-family: 'Courier New', monospace; color: #ffffff; font-weight: 600; font-size: 0.9rem; }
+        .code-label { color: rgba(255, 255, 255, 0.5); font-size: 0.75rem; }
+        input[type="text"] { width: 100%; padding: 1rem; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 12px; color: #ffffff; font-size: 1rem; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; margin-top: 0.5rem; }
+        input[type="text"]:focus { outline: none; border-color: #00d4ff; background: rgba(255, 255, 255, 0.15); box-shadow: 0 0 20px rgba(0, 212, 255, 0.3); }
+        .btn-submit { width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 12px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s; margin-top: 1rem; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
+        .message { padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center; animation: slideIn 0.3s; }
+        .message.error { background: rgba(231, 76, 60, 0.2); border: 1px solid rgba(231, 76, 60, 0.4); color: #ff6b6b; }
+        .message.success { background: rgba(46, 213, 115, 0.2); border: 1px solid rgba(46, 213, 115, 0.4); color: #2ed573; }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); } 20%, 40%, 60%, 80% { transform: translateX(5px); } }
+        .shake { animation: shake 0.5s; }
+        @media (max-width: 480px) { .login-container { padding: 2rem 1.5rem; } h1 { font-size: 1.5rem; } }
+    </style>
 </head>
-
 <body>
-
-  <!-- ✅ ICI : l’interface -->
-  <div class="box">
-    <h2>Accès Espace Membre</h2>
-
-    <input
-      type="text"
-      id="code"
-      placeholder="Entrez votre code d’accès"
-    />
-
- <button id="btn-acceder" type="button" onclick="verifierCode()">
-  Accéder
-</button>
-
-  </div>
-  <hr>
-  <!-- ✅ ICI : le script -->
- 
-<script>
-  // ✅ CODE ADMIN MASTER (accès à toutes les formules)
-  const CODE_ADMIN = "ADMIN-2026-MASTER";
-
-  // ✅ Codes fixes (anciens codes)
-  const CODES_CLAIRS = {
-    "ESS-49-A9F3": "essentiel",
-    "PRE-79-XP22": "premium",
-    "EXC-149-ZA99": "excellence"
-  };
-
-  function verifierCode() {
-    const input = document.getElementById("code");
-    const code = (input?.value || "").trim().toUpperCase();
-
-    if (!code) {
-      alert("Merci de saisir un code");
-      return;
-    }
-
-    // ✅ Vérifier si c'est le code admin
-    if (code === CODE_ADMIN) {
-      localStorage.setItem("plan_acces", "excellence");
-      localStorage.setItem("is_admin", "true");
-      window.location.href = "espace-excellence.html";
-      return;
-    }
-
-    // ✅ Vérifier les codes fixes
-    let plan = CODES_CLAIRS[code];
-    
-    // ✅ Vérifier les codes générés automatiquement (depuis confirmation.html)
-    // IMPORTANT: On vérifie que le code existe EXACTEMENT dans la base
-    if (!plan) {
-      const validCodes = JSON.parse(localStorage.getItem('valid_codes') || '{}');
-      if (validCodes[code]) {
-        // Vérifier que le préfixe correspond à la formule enregistrée
-        const expectedPrefix = validCodes[code].prefix;
-        if (code.startsWith(expectedPrefix + '-')) {
-          // ⏰ VÉRIFIER LA DATE D'EXPIRATION
-          const dateExpiration = new Date(validCodes[code].dateExpiration);
-          const maintenant = new Date();
-          
-          if (maintenant > dateExpiration) {
-            // ❌ Code expiré
-            const dateExpirationFormatee = dateExpiration.toLocaleDateString('fr-FR', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric'
+    <div class="login-container">
+        <div class="logo">
+            <div class="logo-icon">🎓</div>
+            <h1>Accès Espace Membre</h1>
+            <p class="subtitle">Integration Plus</p>
+        </div>
+        <div class="demo-codes">
+            <h3>🧪 Codes de Test - Cliquez pour utiliser</h3>
+            <div class="demo-code-item" onclick="utiliserCode('ESS26TEST01')">
+                <div><div class="code-text">ESS26TEST01</div><div class="code-label">Formule Essentiel</div></div>
+                <span style="color: #00d4ff;">→</span>
+            </div>
+            <div class="demo-code-item" onclick="utiliserCode('PRE26TEST01')">
+                <div><div class="code-text">PRE26TEST01</div><div class="code-label">Formule Premium ⭐</div></div>
+                <span style="color: #00d4ff;">→</span>
+            </div>
+            <div class="demo-code-item" onclick="utiliserCode('EXC26TEST01')">
+                <div><div class="code-text">EXC26TEST01</div><div class="code-label">Formule Excellence</div></div>
+                <span style="color: #00d4ff;">→</span>
+            </div>
+        </div>
+        <form id="loginForm">
+            <label style="color: rgba(255, 255, 255, 0.8); font-size: 0.9rem;">Code d'Accès</label>
+            <input type="text" id="codeAcces" placeholder="Entrez votre code d'accès" required>
+            <button type="submit" class="btn-submit">Accéder à mon espace</button>
+        </form>
+        <div id="messageContainer"></div>
+    </div>
+    <script>
+        function initialiserCodesTest() {
+            const codesTest = [
+                { code: 'ESS26TEST01', formule: 'essentiel', email: 'test1@integration-plus.fr', duree: 365 },
+                { code: 'PRE26TEST01', formule: 'premium', email: 'test2@integration-plus.fr', duree: 365 },
+                { code: 'EXC26TEST01', formule: 'excellence', email: 'test3@integration-plus.fr', duree: 365 }
+            ];
+            codesTest.forEach(options => {
+                const codeData = {
+                    code: options.code,
+                    formule: options.formule,
+                    email: options.email,
+                    dateCreation: new Date().toISOString(),
+                    dateExpiration: new Date(Date.now() + options.duree * 24 * 60 * 60 * 1000).toISOString(),
+                    actif: true
+                };
+                localStorage.setItem(`code_${options.code}`, JSON.stringify(codeData));
             });
-            alert(`⏰ Code expiré\n\nCe code a expiré le ${dateExpirationFormatee}.\n\nPour renouveler votre accès, contactez-nous :\ncontact@integrationplus.eu`);
-            return;
-          }
-          
-          // ✅ Code valide et non expiré
-          plan = validCodes[code].formule;
-        } else {
-          alert("Code invalide. Ne modifiez pas votre code d'accès.");
-          return;
         }
-      }
-    }
-
-    // ❌ SUPPRIMÉ: On n'accepte PLUS les codes juste sur le format
-    // Les codes doivent être enregistrés dans valid_codes
-
-    if (!plan) {
-      alert("Code invalide. Vérifiez votre code ou contactez le support.\n\nSi vous venez d'acheter, utilisez le code qui vous a été fourni sur la page de confirmation.");
-      return;
-    }
-
-    localStorage.setItem("plan_acces", plan);
-
-    if (plan === "essentiel") window.location.href = "espace-essentiel.html";
-    if (plan === "premium") window.location.href = "espace-premium.html";
-    if (plan === "excellence") window.location.href = "espace-excellence.html";
-  }
-
-  // ✅ Entrée = valider + clic bouton
-  document.addEventListener("DOMContentLoaded", () => {
-    const input = document.getElementById("code");
-    const btn = document.getElementById("btn-acceder");
-
-    if (input) {
-      input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") verifierCode();
-      });
-    }
-
-    if (btn) {
-      btn.addEventListener("click", verifierCode);
-    }
-  });
-</script>
-
-
+        window.addEventListener('DOMContentLoaded', function() {
+            initialiserCodesTest();
+            if (localStorage.getItem('memberCode')) {
+                window.location.href = 'espace-membre.html';
+            }
+        });
+        function utiliserCode(code) {
+            document.getElementById('codeAcces').value = code;
+            document.getElementById('codeAcces').focus();
+            afficherMessage('Code sélectionné ! Cliquez sur "Accéder"', 'success');
+        }
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const code = document.getElementById('codeAcces').value.trim().toUpperCase();
+            const codeDataStr = localStorage.getItem(`code_${code}`);
+            if (!codeDataStr) {
+                afficherMessage('❌ Code invalide', 'error');
+                document.getElementById('codeAcces').classList.add('shake');
+                setTimeout(() => document.getElementById('codeAcces').classList.remove('shake'), 500);
+                return;
+            }
+            const codeData = JSON.parse(codeDataStr);
+            localStorage.setItem('memberCode', code);
+            localStorage.setItem('memberFormule', codeData.formule);
+            afficherMessage('✅ Connexion réussie - Redirection...', 'success');
+            setTimeout(() => window.location.href = 'espace-membre.html', 1500);
+        });
+        function afficherMessage(texte, type) {
+            document.getElementById('messageContainer').innerHTML = `<div class="message ${type}">${texte}</div>`;
+        }
+        document.getElementById('codeAcces').addEventListener('input', function(e) {
+            e.target.value = e.target.value.toUpperCase();
+        });
+    </script>
 </body>
 </html>
-
