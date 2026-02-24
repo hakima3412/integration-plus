@@ -1,0 +1,10 @@
+<!DOCTYPE html><html lang='fr'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Accès Espace Membre</title><body style='font-family:Arial;background:#0f172a;color:#fff;padding:20px'>
+<h1>Accès Espace Membre</h1><p>Codes test: ESS26TEST01 / PRE26TEST01 / EXC26TEST01</p>
+<input id='c' placeholder='Code d\'accès' style='padding:10px;width:100%;max-width:400px'><br><br>
+<button onclick='go()' style='padding:10px 14px'>Accéder</button> <p id='m'></p>
+<script>
+const C={ESS26TEST01:'essentiel',PRE26TEST01:'premium',EXC26TEST01:'excellence'};
+function go(){const v=(c.value||'').trim().toUpperCase(); if(!C[v]){m.textContent='Code invalide';return;}
+localStorage.setItem('code_acces',v);localStorage.setItem('plan_acces',C[v]);localStorage.setItem('formule',C[v]);location='espace-membre.html';}
+</script></body></html>

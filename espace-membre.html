@@ -1,0 +1,7 @@
+<!DOCTYPE html><html lang='fr'><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'>
+<title>Redirection espace membre</title><body style='font-family:Arial;background:#0f172a;color:#fff;padding:20px'>
+<h1>Chargement...</h1><p id='msg'></p><script>
+const p=(localStorage.getItem('plan_acces')||localStorage.getItem('formule')||'').toLowerCase();
+const map={essentiel:'espace-essentiel.html',premium:'espace-premium.html',excellence:'espace-excellence.html'};
+if(map[p]){msg.textContent='Redirection vers '+p; location.replace(map[p]);}
+else {msg.innerHTML='Aucun accès valide. <a href="acces.html" style="color:#67e8f9">Retour</a>';}</script></body></html>
